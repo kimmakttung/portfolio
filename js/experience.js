@@ -18,3 +18,15 @@ if('IntersectionObserver' in window){
  },{threshold:.08});
  document.querySelectorAll('.journey-card,.interest-card,.memory-section>h2,.journey-panel>h2,.plan-result,.planner-form,.social-card').forEach(element=>observer.observe(element));
 }
+
+const homeTransition=document.querySelector('.home-transition');
+if(homeTransition){
+ let transitionFrame=0;
+ function renderHomeTransition(){
+  transitionFrame=0;const box=homeTransition.getBoundingClientRect();
+  const progress=Math.max(0,Math.min(1,(innerHeight-box.top)/(innerHeight+box.height)));
+  homeTransition.style.setProperty('--transition-progress',String(progress));
+ }
+ function scheduleHomeTransition(){if(!transitionFrame)transitionFrame=requestAnimationFrame(renderHomeTransition);}
+ addEventListener('scroll',scheduleHomeTransition,{passive:true});addEventListener('resize',scheduleHomeTransition);renderHomeTransition();
+}

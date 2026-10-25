@@ -7,6 +7,9 @@ const galleryCounter=document.getElementById('gallery-counter');
 const galleryPrevious=document.getElementById('gallery-prev');
 const galleryNext=document.getElementById('gallery-next');
 const galleryReduced=matchMedia('(prefers-reduced-motion: reduce)');
+const galleryPhone=matchMedia('(max-width: 760px)');
+const galleryLandscape=matchMedia('(max-width: 950px) and (max-height: 520px) and (orientation: landscape)');
+let galleryPerStep=galleryPhone.matches?1:2;
 let exhibits=[],galleryPairs=0,activePair=-1,galleryFrame=0;
 function galleryNode(tag,text,className){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(className)element.className=className;return element;}
 function updateGallery(){
@@ -20,10 +23,10 @@ function updateGallery(){
  galleryPrevious.disabled=current===0;galleryNext.disabled=current===galleryPairs-1;
  const width=galleryStage.clientWidth;
  exhibits.forEach(({element},index)=>{
-  if(galleryReduced.matches){element.removeAttribute('style');element.tabIndex=0;element.removeAttribute('aria-hidden');return;}
-  const offset=Math.floor(index/2)-travel;const side=index%2===0?-1:1;
+  if(galleryReduced.matches||galleryLandscape.matches){element.removeAttribute('style');element.tabIndex=0;element.removeAttribute('aria-hidden');return;}
+  const offset=Math.floor(index/galleryPerStep)-travel;const side=index%2===0?-1:1;
   const scale=offset>=0?1/(1+offset*.82):1-offset*.7;
-  const x=side*width*(width<600?.245:.31)*(offset>=0?scale:1-offset*1.6);
+  const x=galleryPerStep===1?(offset>=0?width*.45*(1-scale):width*offset*1.65):side*width*.31*(offset>=0?scale:1-offset*1.6);
   const y=offset>=0?-offset*18:offset*22;
   const opacity=Math.max(0,Math.min(1,offset<0?1+offset*2:1));
   const visible=offset>-.55&&offset<3.5;
@@ -45,8 +48,8 @@ function renderGallery(){
  let projects;
  try{projects=projectStore.list();}catch{galleryEmpty.hidden=false;galleryEmpty.querySelector('h3').textContent=t('갤러리를 불러오지 못했습니다. 저장된 프로젝트는 변경하지 않았습니다.');galleryEmpty.querySelector('p').textContent='';galleryCounter.textContent='00 / 00';galleryPairs=0;galleryPrevious.disabled=galleryNext.disabled=true;galleryShell.style.setProperty('--gallery-height','130svh');return;}
  projects.sort((a,b)=>Number(Boolean(b.pinned))-Number(Boolean(a.pinned))||b.updatedAt.localeCompare(a.updatedAt));
- galleryPairs=Math.ceil(projects.length/2);galleryEmpty.hidden=projects.length>0;
- galleryShell.style.setProperty('--gallery-height',(galleryPairs>1?100+(galleryPairs-1)*85:130)+'svh');
+ galleryPerStep=galleryPhone.matches?1:2;galleryPairs=Math.ceil(projects.length/galleryPerStep);galleryEmpty.hidden=projects.length>0;
+ galleryShell.style.setProperty('--gallery-height',(galleryPairs>1?100+(galleryPairs-1)*(galleryPerStep===1?65:85):130)+'svh');
  if(!projects.length){galleryEmpty.querySelector('h3').textContent=t('첫 번째 작품을 기다립니다.');galleryEmpty.querySelector('p').textContent=t('기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.');galleryCounter.textContent='00 / 00';galleryPrevious.disabled=galleryNext.disabled=true;}
  projects.forEach((project,index)=>{
   const frame=galleryNode('a',undefined,'gallery-frame');frame.href='projects.html?project='+encodeURIComponent(project.id);frame.dataset.projectId=project.id;
@@ -60,6 +63,6 @@ function renderGallery(){
  });
  updateGallery();
 }
-addEventListener('scroll',scheduleGallery,{passive:true});addEventListener('resize',scheduleGallery);galleryReduced.addEventListener('change',()=>{activePair=-1;scheduleGallery();});
+addEventListener('scroll',scheduleGallery,{passive:true});addEventListener('resize',scheduleGallery);galleryReduced.addEventListener('change',()=>{activePair=-1;scheduleGallery();});galleryPhone.addEventListener('change',renderGallery);galleryLandscape.addEventListener('change',()=>{activePair=-1;scheduleGallery();});
 addEventListener('storage',event=>{if(event.key===projectStore.key||event.key===null)renderGallery();});
 addEventListener('pageshow',renderGallery);document.addEventListener('languagechange',renderGallery);renderGallery();

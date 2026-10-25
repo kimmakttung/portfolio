@@ -279,5 +279,47 @@ const aboutTranslations = {
     "Show original instead of translation",
     "Xem bản gốc thay cho bản dịch",
     "显示原文而非译文"
+  ],
+  "대학교": [
+    "대학교",
+    "大学",
+    "University",
+    "Đại học",
+    "大学"
+  ],
+  "학부": [
+    "학부",
+    "学部",
+    "Division",
+    "Khoa",
+    "学部"
+  ],
+  "전공": [
+    "전공",
+    "専攻",
+    "Major",
+    "Chuyên ngành",
+    "专业"
+  ],
+  "부산외국어대학교": [
+    "부산외국어대학교",
+    "釜山外国語大学",
+    "Busan University of Foreign Studies",
+    "Đại học Ngoại ngữ Busan",
+    "釜山外国语大学"
+  ],
+  "일본어융합학부": [
+    "일본어융합학부",
+    "日本語融合学部",
+    "Division of Japanese Convergence Studies",
+    "Khoa Nhật ngữ liên ngành",
+    "日语融合学部"
+  ],
+  "한일문화콘텐츠전공": [
+    "한일문화콘텐츠전공",
+    "韓日文化コンテンツ専攻",
+    "Korean–Japanese Cultural Content",
+    "Nội dung văn hóa Hàn–Nhật",
+    "韩日文化内容专业"
   ]
 };

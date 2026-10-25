@@ -24,7 +24,7 @@ function readDrafts(){
 }
 function serialize(){return '<!doctype html>\n'+model.documentElement.outerHTML+'\n';}
 function clearSelection(){selectedIndex=-1;fields.disabled=true;document.getElementById('image-controls').hidden=true;document.getElementById('link-controls').hidden=true;document.getElementById('selection-help').textContent=t('미리보기에서 문구나 이미지를 선택하세요.');}
-function selectElement(index){
+function selectElement(index,scrollToInspector=false){
  const element=modelNodes[index];if(!element)return;selectedIndex=index;fields.disabled=false;
  const image=element.tagName==='IMG';document.getElementById('image-controls').hidden=!image;document.getElementById('link-controls').hidden=element.tagName!=='A';
  textInput.disabled=image;textInput.value=image?'':element.textContent;imageUrl.value=element.getAttribute('src')||'';imageAlt.value=element.getAttribute('alt')||'';linkInput.value=element.getAttribute('href')||'';
@@ -32,6 +32,7 @@ function selectElement(index){
  document.getElementById('selection-help').textContent=element.tagName+(element.id?' / #'+element.id:'');
  preview.contentDocument.querySelectorAll('[data-editor-selected]').forEach(node=>node.removeAttribute('data-editor-selected'));
  preview.contentDocument.querySelector('[data-editor-key="'+index+'"]')?.setAttribute('data-editor-selected','');
+ if(scrollToInspector&&matchMedia('(max-width:760px)').matches)document.querySelector('.editor-inspector').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'});
 }
 function renderPreview(){
  model=new DOMParser().parseFromString(sourceInput.value,'text/html');modelNodes=[...model.querySelectorAll(editableSelector)];
@@ -42,7 +43,7 @@ function renderPreview(){
  const style=copy.createElement('style');style.textContent='[data-editor-key]{cursor:crosshair!important}[data-editor-key]:hover{outline:1px dashed #e4a07d;outline-offset:3px}[data-editor-selected]{outline:2px solid #f2b48b!important;outline-offset:4px}*{animation:none!important;transition:none!important}';copy.head.append(style);
  preview.onload=()=>{
   const doc=preview.contentDocument;if(!doc)return;
-  doc.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const element=event.target.closest('[data-editor-key]');if(element)selectElement(Number(element.dataset.editorKey));},true);
+  doc.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();const element=event.target.closest('[data-editor-key]');if(element)selectElement(Number(element.dataset.editorKey),true);},true);
   doc.addEventListener('submit',event=>event.preventDefault());
   if(selectedIndex>=0&&modelNodes[selectedIndex])selectElement(selectedIndex);
  };
@@ -76,7 +77,7 @@ document.getElementById('element-form').addEventListener('submit',event=>{
  else element.textContent=textInput.value;
  if(element.tagName==='A')element.setAttribute('href',linkInput.value.trim());
  if(color)element.style.color=color;if(size)element.style.fontSize=Number(size)+'px';if(alignInput.value)element.style.textAlign=alignInput.value;
- sourceInput.value=serialize();dirty=true;renderPreview();announce('수정 내용을 적용했습니다. 임시 저장하거나 HTML을 다운로드해 주세요.');
+ sourceInput.value=serialize();dirty=true;renderPreview();if(matchMedia('(max-width:760px)').matches)document.querySelector('.editor-preview-area').scrollIntoView({behavior:'smooth',block:'start'});announce('수정 내용을 적용했습니다. 임시 저장하거나 HTML을 다운로드해 주세요.');
 });
 document.getElementById('image-file').addEventListener('change',event=>{
  const file=event.target.files[0];if(!file)return;
@@ -97,3 +98,8 @@ document.getElementById('reload-original').addEventListener('click',()=>{
 window.addEventListener('beforeunload',event=>{if(dirty){event.preventDefault();event.returnValue='';}});
 document.addEventListener('languagechange',()=>{if(lastStatus)editorStatus.textContent=t(lastStatus);if(selectedIndex<0)document.getElementById('selection-help').textContent=t('미리보기에서 문구나 이미지를 선택하세요.');});
 loadPage(currentFile);
+
+if('ResizeObserver' in window){
+ const editorToolbar=document.querySelector('.editor-toolbar');
+ new ResizeObserver(()=>{document.querySelector('.editor-page').style.setProperty('--editor-toolbar-offset',Math.ceil(editorToolbar.getBoundingClientRect().height+16)+'px');}).observe(editorToolbar);
+}

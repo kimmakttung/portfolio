@@ -705,6 +705,7 @@ Object.assign(translations, {'페이지 편집':['페이지 편집','ページ�
 if (typeof editorTranslations !== 'undefined') Object.assign(translations, editorTranslations);
 if (typeof galleryTranslations !== 'undefined') Object.assign(translations, galleryTranslations);
 Object.assign(translations, {"문의하기": ["문의하기", "お問い合わせ", "Get in touch", "Gửi yêu cầu", "联系咨询"], "기본 메일 앱에서 문의를 작성합니다.": ["기본 메일 앱에서 문의를 작성합니다.", "既定のメールアプリでお問い合わせを作成します。", "Compose your inquiry in your default email app.", "Soạn yêu cầu trong ứng dụng email mặc định.", "在默认邮件应用中撰写咨询。"]});
+Object.assign(translations, {"메뉴": ["메뉴", "メニュー", "Menu", "Menu", "菜单"], "메뉴 열기": ["메뉴 열기", "メニューを開く", "Open menu", "Mở menu", "打开菜单"], "메뉴 닫기": ["메뉴 닫기", "メニューを閉じる", "Close menu", "Đóng menu", "关闭菜单"]});
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
