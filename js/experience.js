@@ -7,7 +7,7 @@ if(stage&&word&&window.matchMedia('(hover: hover) and (pointer: fine)').matches)
  stage.addEventListener('pointermove',event=>{
   if(motionPreference.matches)return;
   const box=stage.getBoundingClientRect();const x=(event.clientX-box.left)/box.width-.5;const y=(event.clientY-box.top)/box.height-.5;
-  cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{word.style.transform=`rotateX(${12-y*5}deg) rotateY(${-13+x*9}deg) rotateZ(${-5+x*2}deg)`;});
+  cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{word.style.transform=`rotateX(${12-y*9}deg) rotateY(${-13+x*16}deg) rotateZ(${-5+x*4}deg)`;});
  });
  stage.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);word.style.removeProperty('transform');});
  motionPreference.addEventListener('change',()=>{cancelAnimationFrame(frame);word.style.removeProperty('transform');});

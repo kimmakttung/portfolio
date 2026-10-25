@@ -701,6 +701,8 @@ if (typeof projectTranslations !== 'undefined') Object.assign(translations, proj
 Object.assign(translations, {"소셜 채널": ["소셜 채널", "ソーシャルメディア", "Social channels", "Mạng xã hội", "社交平台"], "링크 준비 중": ["링크 준비 중", "リンク準備中", "Link coming soon", "Sắp có liên kết", "链接准备中"], "소셜 계정 링크는 추후 연결할 예정입니다.": ["소셜 계정 링크는 추후 연결할 예정입니다.", "アカウントのリンクは後日追加予定です。", "Social profile links will be added later.", "Liên kết tài khoản sẽ được bổ sung sau.", "社交账号链接将在之后添加。"]});
 Object.assign(translations, {"기획서 작성": ["기획서 작성", "企画書を作成", "Create a proposal", "Viết kế hoạch", "编写策划书"]});
 Object.assign(translations, {"연결": ["연결", "つながり", "Connect", "Kết nối", "连接"], "문화": ["문화", "文化", "Culture", "Văn hóa", "文化"], "사람": ["사람", "人", "People", "Con người", "人"], "경험": ["경험", "経験", "Experience", "Trải nghiệm", "经历"], "서로 다른 생각을 연결해, 새로운 가능성을 만듭니다.": ["서로 다른 생각을 연결해, 새로운 가능성을 만듭니다.", "異なる考えをつなぎ、新たな可能性をつくる。", "Connecting different perspectives to create new possibilities.", "Kết nối những góc nhìn khác nhau, mở ra những khả năng mới.", "连接不同想法，创造新的可能。"], "관찰 → 연결 → 실행": ["관찰 → 연결 → 실행", "観察 → つなぐ → 実行", "Observe → Connect → Act", "Quan sát → Kết nối → Hành động", "观察 → 连接 → 实践"]});
+Object.assign(translations, {'페이지 편집':['페이지 편집','ページ編集','Edit pages','Sửa trang','编辑页面']});
+if (typeof editorTranslations !== 'undefined') Object.assign(translations, editorTranslations);
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
