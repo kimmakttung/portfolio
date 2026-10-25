@@ -694,6 +694,7 @@ const translations = {
     "您输入的内容不会自动翻译。"
   ]
 };
+Object.assign(translations, {"홈": ["홈", "ホーム", "Home", "Trang chủ", "首页"], "자세히 알아보기": ["자세히 알아보기", "もっと見る", "Explore my story", "Tìm hiểu thêm", "了解更多"], "언어를 변경했습니다.": ["언어를 변경했습니다.", "言語を変更しました。", "Language changed.", "Đã đổi ngôn ngữ.", "语言已切换。"]});
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
@@ -715,13 +716,16 @@ const languageSelect = document.getElementById('site-language');
 function setLanguage(language, announce = false) {
   currentLanguage = languageCodes.includes(language) ? language : 'ko';
   document.documentElement.lang = currentLanguage;
-  document.title = t('김도현 — 마케팅 · 기획');
+  document.title = t(document.body.dataset.pageTitle) + ' | ' + t('김도현 — 마케팅 · 기획');
   document.querySelector('meta[name="description"]').content = t('마케팅과 기획 분야로 나아가는 저를 소개합니다.');
   textNodes.forEach(({node,original,key}) => { node.textContent = original.replace(key,t(key)); });
   attributeNodes.forEach(({node,attribute,key}) => node.setAttribute(attribute,t(key)));
   languageSelect.value = currentLanguage;
   try { localStorage.setItem('dohyun-language',currentLanguage); } catch { /* Optional persistence. */ }
-  if (announce) document.getElementById('plan-status').textContent = t('화면 언어를 바꿨습니다. 입력 내용과 기존 초안은 유지됩니다. 새 초안부터 선택한 언어가 적용됩니다.');
+  if (announce) {
+    const statusNode = document.getElementById('plan-status');
+    if (statusNode) statusNode.textContent = t('화면 언어를 바꿨습니다. 입력 내용과 기존 초안은 유지됩니다. 새 초안부터 선택한 언어가 적용됩니다.');
+  }
 }
 languageSelect.addEventListener('change', () => setLanguage(languageSelect.value,true));
 let savedLanguage = 'ko';
