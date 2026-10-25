@@ -22,3 +22,12 @@ journeyTabs.forEach((tab,i)=>{
 });
 showJourney(location.hash.slice(1));
 window.addEventListener('hashchange',()=>{if(journeyPanels.some(p=>'#'+p.id===location.hash))showJourney(location.hash.slice(1));});
+
+document.querySelectorAll('[data-expand]').forEach(button=>{
+ button.addEventListener('click',()=>{
+  const expanded=button.dataset.expand==='true';
+  button.closest('.journey-panel').querySelectorAll('details').forEach(details=>{details.open=expanded;});
+ });
+});
+function localizeNoteLabels(){document.querySelectorAll('[data-note-label]').forEach(label=>{label.textContent=t('원문 메모 · 작성 안내 포함');});}
+document.addEventListener('languagechange',localizeNoteLabels);
