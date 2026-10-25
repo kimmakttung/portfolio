@@ -698,6 +698,7 @@ Object.assign(translations, {"홈": ["홈", "ホーム", "Home", "Trang chủ", 
 Object.assign(translations, {"보유 자격증": ["보유 자격증", "資格", "Certification", "Chứng chỉ", "资格证书"], "JLPT N1 보유": ["JLPT N1 보유", "JLPT N1 取得", "JLPT N1 certified", "Đã đạt JLPT N1", "持有 JLPT N1 证书"]});
 if (typeof aboutTranslations !== 'undefined') Object.assign(translations, aboutTranslations);
 if (typeof projectTranslations !== 'undefined') Object.assign(translations, projectTranslations);
+Object.assign(translations, {"소셜 채널": ["소셜 채널", "ソーシャルメディア", "Social channels", "Mạng xã hội", "社交平台"], "링크 준비 중": ["링크 준비 중", "リンク準備中", "Link coming soon", "Sắp có liên kết", "链接准备中"], "소셜 계정 링크는 추후 연결할 예정입니다.": ["소셜 계정 링크는 추후 연결할 예정입니다.", "アカウントのリンクは後日追加予定です。", "Social profile links will be added later.", "Liên kết tài khoản sẽ được bổ sung sau.", "社交账号链接将在之后添加。"]});
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
