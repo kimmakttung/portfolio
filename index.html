@@ -9,7 +9,11 @@
   <link rel="stylesheet" href="css/portfolio.css?v=connection-1">
   <link rel="stylesheet" href="css/connection.css?v=free-connection-1">
   <script src="js/experience.js?v=free-connection-1" defer></script>
-  <script src="js/i18n.js?v=editor-1" defer></script>
+  <script src="js/project-store.js?v=gallery-1" defer></script>
+  <script src="js/gallery-translations.js?v=1" defer></script>
+  <script src="js/i18n.js?v=gallery-1" defer></script>
+  <link rel="stylesheet" href="css/gallery.css?v=1">
+  <script src="js/gallery.js?v=1" defer></script>
 </head>
 <body class="home-page" data-page-title="홈">
   <a class="skip" href="#main">본문으로 이동</a>
@@ -34,8 +38,9 @@
       <div class="connection-stage"><div class="connection-float"><h1 id="hero-title" class="connection-word">연결</h1></div></div>
       <div class="connection-caption"><p>서로 다른 생각을 연결해, 새로운 가능성을 만듭니다.</p><span>관찰 → 연결 → 실행</span></div>
       <div class="connection-actions"><a class="button connection-cta" href="planner.html">기획서 작성 <span aria-hidden="true">↗</span></a><a class="connection-about" href="about.html">자세히 알아보기 <span aria-hidden="true">↗</span></a></div>
-      <div class="connection-bottom wrap"><span>01 / CONNECTION</span><span class="connection-bottom-center">CULTURE. PEOPLE. POSSIBILITY.</span><span class="connection-indicator" aria-hidden="true"><i></i><i></i></span></div>
+      <div class="connection-bottom wrap"><span>01 / CONNECTION</span><a class="connection-bottom-center" href="#project-gallery">스크롤로 갤러리 입장 ↓</a><span class="connection-indicator" aria-hidden="true"><i></i><i></i></span></div>
     </section>
+    <section id="project-gallery" class="gallery-shell" aria-labelledby="gallery-title"><div class="gallery-stage"><div class="gallery-architecture" aria-hidden="true"></div><div class="gallery-vignette" aria-hidden="true"></div><header class="gallery-heading"><p>THE PROJECT GALLERY</p><h2 id="gallery-title">경험의 전당</h2><span>생각이 작품이 되는 공간.</span><i aria-hidden="true">✧</i></header><div id="gallery-frames" class="gallery-frames"></div><div id="gallery-empty" class="gallery-empty" hidden><span aria-hidden="true">◇</span><h3>첫 번째 작품을 기다립니다.</h3><p>기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.</p><a href="planner.html" class="button">새 기획서 작성</a></div><nav class="gallery-controls" aria-label="프로젝트"><button id="gallery-prev" type="button" aria-label="이전 액자">←</button><p id="gallery-counter" role="status" aria-live="polite">00 / 00</p><button id="gallery-next" type="button" aria-label="다음 액자">→</button><a href="projects.html">프로젝트 관리</a></nav><p class="gallery-instruction">스크롤하며 프로젝트를 만나보세요. 액자를 누르면 상세 내용을 볼 수 있습니다.</p></div></section><p class="gallery-storage-note wrap">고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 프로젝트는 이 브라우저에 저장됩니다.</p>
   </main>
 </body>
 </html>

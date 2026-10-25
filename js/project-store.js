@@ -15,5 +15,10 @@ const projectStore = (() => {
   localStorage.setItem(key,JSON.stringify(all));return next;
  }
  function remove(id){localStorage.setItem(key,JSON.stringify(list().filter(p=>p.id!==id)));}
- return {key,list,save,remove};
+ function imageSource(value){
+  if(typeof value!=='string'||!value.trim())return '';
+  if(/^data:image\/(?:png|jpeg|webp);base64,[A-Za-z0-9+/=]+$/.test(value))return value;
+  try{const url=new URL(value,location.href);return ['https:','http:'].includes(url.protocol)?url.href:'';}catch{return '';}
+ }
+ return {key,list,save,remove,imageSource};
 })();

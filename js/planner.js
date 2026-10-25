@@ -46,7 +46,7 @@ download.addEventListener('click', () => {
 function persistProject(inputs) {
  try {
   const existing=activeProject;
-  const project={id:existing?.id||crypto.randomUUID(),title:inputs.title,inputs:{...inputs},content:output.value,language:currentLanguage,createdAt:existing?.createdAt||new Date().toISOString()};
+  const project={...existing,id:existing?.id||crypto.randomUUID(),title:inputs.title,inputs:{...inputs},content:output.value,language:currentLanguage,createdAt:existing?.createdAt||new Date().toISOString()};
   activeProject=projectStore.save(project,existing?.revision);
   status.textContent=t(existing?'프로젝트 수정 내용을 저장했습니다.':'프로젝트에 저장했습니다.');
  } catch(error) {
