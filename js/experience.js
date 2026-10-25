@@ -26,6 +26,11 @@ if(homeTransition){
   transitionFrame=0;const box=homeTransition.getBoundingClientRect();
   const progress=Math.max(0,Math.min(1,(innerHeight-box.top)/(innerHeight+box.height)));
   homeTransition.style.setProperty('--transition-progress',String(progress));
+  const hero=document.querySelector('.connection-hero');const gallery=document.querySelector('.gallery-stage');
+  const ease=value=>{const x=Math.max(0,Math.min(1,value));return x*x*(3-2*x);};
+  if(hero){const r=hero.getBoundingClientRect();const faded=ease(Math.max(0,-r.top)/Math.max(1,r.height*.7));hero.style.setProperty('--home-visibility',String(1-faded));}
+  if(gallery){const r=gallery.getBoundingClientRect();const revealed=ease((innerHeight*.95-r.top)/Math.max(1,innerHeight*.65));gallery.style.setProperty('--gallery-visibility',String(revealed));}
+
  }
  function scheduleHomeTransition(){if(!transitionFrame)transitionFrame=requestAnimationFrame(renderHomeTransition);}
  addEventListener('scroll',scheduleHomeTransition,{passive:true});addEventListener('resize',scheduleHomeTransition);renderHomeTransition();
