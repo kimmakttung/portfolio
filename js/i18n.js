@@ -696,6 +696,8 @@ const translations = {
 };
 Object.assign(translations, {"홈": ["홈", "ホーム", "Home", "Trang chủ", "首页"], "자세히 알아보기": ["자세히 알아보기", "もっと見る", "Explore my story", "Tìm hiểu thêm", "了解更多"], "언어를 변경했습니다.": ["언어를 변경했습니다.", "言語を変更しました。", "Language changed.", "Đã đổi ngôn ngữ.", "语言已切换。"]});
 Object.assign(translations, {"보유 자격증": ["보유 자격증", "資格", "Certification", "Chứng chỉ", "资格证书"], "JLPT N1 보유": ["JLPT N1 보유", "JLPT N1 取得", "JLPT N1 certified", "Đã đạt JLPT N1", "持有 JLPT N1 证书"]});
+if (typeof aboutTranslations !== 'undefined') Object.assign(translations, aboutTranslations);
+if (typeof projectTranslations !== 'undefined') Object.assign(translations, projectTranslations);
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
@@ -722,6 +724,7 @@ function setLanguage(language, announce = false) {
   textNodes.forEach(({node,original,key}) => { node.textContent = original.replace(key,t(key)); });
   attributeNodes.forEach(({node,attribute,key}) => node.setAttribute(attribute,t(key)));
   languageSelect.value = currentLanguage;
+  document.dispatchEvent(new Event('languagechange'));
   try { localStorage.setItem('dohyun-language',currentLanguage); } catch { /* Optional persistence. */ }
   if (announce) {
     const statusNode = document.getElementById('plan-status');
