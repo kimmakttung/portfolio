@@ -31,3 +31,13 @@ document.querySelectorAll('[data-expand]').forEach(button=>{
 });
 function localizeNoteLabels(){document.querySelectorAll('[data-note-label]').forEach(label=>{label.textContent=t('원문 메모 · 작성 안내 포함');});}
 document.addEventListener('languagechange',localizeNoteLabels);
+
+const originalToggle=document.getElementById('mind-original-toggle');
+const mindmapEntries=[...document.querySelectorAll('[data-source-topic],[data-source-note]')].map(node=>({node,original:node.textContent}));
+function renderMindmapLanguage(){
+ const korean=currentLanguage==='ko'&&!originalToggle.checked;
+ mindmapEntries.forEach(({node,original})=>{node.textContent=korean?(mindmapKorean[original]??original):original;});
+ document.querySelectorAll('[data-mind-source]').forEach(node=>node.setAttribute('lang',korean?'ko':'ja'));
+}
+originalToggle.addEventListener('change',renderMindmapLanguage);
+document.addEventListener('languagechange',renderMindmapLanguage);

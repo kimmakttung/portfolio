@@ -43,32 +43,18 @@ const aboutTranslations = {
     "未来 · 目标与关键词"
   ],
   "장점 키워드 · 원문": [
-    "장점 키워드 · 원문",
+    "장점 키워드",
     "長所のキーワード・原文",
     "Strength keywords · Original",
     "Từ khóa điểm mạnh · Nguyên văn",
     "优势关键词 · 原文"
   ],
   "나의 자기분석 원문": [
-    "나의 자기분석 원문",
+    "나의 자기분석",
     "自己分析の原文",
     "My self-analysis in full",
     "Bản tự phân tích nguyên văn",
     "完整自我分析原文"
-  ],
-  "두 마인드맵의 주제와 메모를 요약 없이 그대로 수록했습니다. 일본어·한국어 원문, 작성 안내, 미완성 항목도 유지했습니다.": [
-    "두 마인드맵의 주제와 메모를 요약 없이 그대로 수록했습니다. 일본어·한국어 원문, 작성 안내, 미완성 항목도 유지했습니다.",
-    "2つのマインドマップのトピックとメモを省略せず掲載しました。日本語・韓国語の原文、記入ガイド、未完成の項目も保持しています。",
-    "All topics and notes from both mind maps are included without summarizing. Original Japanese and Korean text, writing prompts and unfinished entries are preserved.",
-    "Toàn bộ chủ đề và ghi chú của hai sơ đồ được giữ nguyên, không tóm tắt, bao gồm tiếng Nhật, tiếng Hàn, hướng dẫn và mục chưa hoàn thiện.",
-    "完整收录两份思维导图的主题与备注，不作摘要，保留日文、韩文原文、填写提示和未完成项。"
-  ],
-  "메뉴와 안내는 선택한 언어로 표시되며, 마인드맵 원문은 번역하지 않습니다.": [
-    "메뉴와 안내는 선택한 언어로 표시되며, 마인드맵 원문은 번역하지 않습니다.",
-    "メニューと案内は選択言語で表示し、マインドマップの原文は翻訳しません。",
-    "Menus and guidance follow your selected language; the original mind map text is not translated.",
-    "Menu và hướng dẫn dùng ngôn ngữ đã chọn; nội dung gốc không được dịch.",
-    "菜单和说明使用所选语言，思维导图原文不进行翻译。"
   ],
   "자기분석 이야기": [
     "자기분석 이야기",
@@ -92,7 +78,7 @@ const aboutTranslations = {
     "全部收起"
   ],
   "원문 메모 · 작성 안내 포함": [
-    "원문 메모 · 작성 안내 포함",
+    "메모 · 작성 안내 포함",
     "原文メモ・記入ガイドを含む",
     "Original note · includes writing prompts",
     "Ghi chú gốc · gồm hướng dẫn",
@@ -272,5 +258,26 @@ const aboutTranslations = {
     "I like turning useful writing and resources into practical tasks and connecting study, exercise and job preparation into a consistent system. The mind maps below preserve the experiences and thoughts behind that direction.",
     "Tôi thích chuyển tài liệu hữu ích thành nhiệm vụ thực hành và kết hợp học tập, vận động, tìm việc thành hệ thống bền vững. Các sơ đồ bên dưới giữ nguyên trải nghiệm và suy nghĩ làm nền tảng.",
     "倾向于将有价值的文章和资料转化为实践任务，把学习、运动和求职整合为持续执行的系统。下方导图原文记录了这些方向背后的经历与思考。"
+  ],
+  "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 한국어에서는 전체 한국어 번역을 표시하고, 원문도 그대로 확인할 수 있습니다.": [
+    "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 한국어에서는 전체 한국어 번역을 표시하고, 원문도 그대로 확인할 수 있습니다.",
+    "2つのマインドマップのトピックとメモを省略せず掲載しています。韓国語では全文の翻訳を表示し、原文も確認できます。",
+    "Every topic and note from both mind maps is included. Korean mode shows a full Korean translation; the originals remain available.",
+    "Toàn bộ chủ đề và ghi chú được giữ đầy đủ. Chế độ tiếng Hàn hiển thị bản dịch đầy đủ và vẫn có thể xem bản gốc.",
+    "完整收录两份思维导图的主题和备注。韩语模式显示完整韩语译文，也可查看原文。"
+  ],
+  "한국어 선택 시 번역문을, 다른 언어 선택 시 원문을 표시합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.": [
+    "한국어 선택 시 번역문을, 다른 언어 선택 시 원문을 표시합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.",
+    "韓国語では翻訳、それ以外の言語では原文を表示します。記入ガイドや未完成項目も省略していません。",
+    "Korean displays the translation; other languages display the original text. Writing prompts and unfinished entries are also included.",
+    "Tiếng Hàn hiển thị bản dịch; các ngôn ngữ khác hiển thị bản gốc. Hướng dẫn và mục chưa hoàn thiện cũng được giữ lại.",
+    "选择韩语显示译文，其他语言显示原文，填写提示和未完成项也完整保留。"
+  ],
+  "번역 대신 원문 보기": [
+    "번역 대신 원문 보기",
+    "翻訳ではなく原文を表示",
+    "Show original instead of translation",
+    "Xem bản gốc thay cho bản dịch",
+    "显示原文而非译文"
   ]
 };
