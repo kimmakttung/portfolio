@@ -140,13 +140,6 @@ const aboutTranslations = {
     "Thương hiệu kết nối Nhật Bản và Việt Nam",
     "连接日本与越南的品牌"
   ],
-  "자체 브랜드와 브랜드 IP, 일본과 베트남을 연결하는 사업을 목표로 합니다. 노희영의 커리어를 하나의 모델로 보며 브랜드 기획과 비즈니스 감각을 키우고 싶습니다.": [
-    "자체 브랜드와 브랜드 IP, 일본과 베트남을 연결하는 사업을 목표로 합니다. 노희영의 커리어를 하나의 모델로 보며 브랜드 기획과 비즈니스 감각을 키우고 싶습니다.",
-    "独自ブランドやブランドIP、日本とベトナムをつなぐ事業を目指しています。ノ・ヒヨンのキャリアを一つのモデルに、ブランド企画とビジネス感覚を磨きたいです。",
-    "My long-term goals include my own brands, brand IP and a business connecting Japan and Vietnam. Noh Hee-young's career is one model as I develop my sense of branding and business.",
-    "Tôi hướng đến thương hiệu riêng, IP thương hiệu và kinh doanh kết nối Nhật–Việt. Tôi xem sự nghiệp Noh Hee-young là một hình mẫu để học về thương hiệu và tư duy kinh doanh.",
-    "长期目标包括自有品牌、品牌IP及连接日本与越南的事业，参考卢熙英的职业路径，培养品牌策划与商业思维。"
-  ],
   "탐구하는 문화콘텐츠": [
     "탐구하는 문화콘텐츠",
     "探究したい文化コンテンツ",
@@ -321,5 +314,26 @@ const aboutTranslations = {
     "Korean–Japanese Cultural Content",
     "Nội dung văn hóa Hàn–Nhật",
     "韩日文化内容专业"
+  ],
+  "자체 브랜드와 브랜드 IP, 일본과 베트남을 연결하는 사업을 목표로 합니다. 노희영 고문님의 커리어를 롤모델로 삼아 브랜드 기획과 비즈니스 감각을 키우고 싶습니다.": [
+    "자체 브랜드와 브랜드 IP, 일본과 베트남을 연결하는 사업을 목표로 합니다. 노희영 고문님의 커리어를 롤모델로 삼아 브랜드 기획과 비즈니스 감각을 키우고 싶습니다.",
+    "独自ブランドやブランドIP、日本とベトナムをつなぐ事業を目指しています。ノ・ヒヨン顧問のキャリアをロールモデルに、ブランド企画とビジネス感覚を磨きたいです。",
+    "My long-term goals include my own brands, brand IP and a business connecting Japan and Vietnam. I look to advisor Noh Hee-young's career as a role model as I develop my branding and business skills.",
+    "Tôi hướng đến thương hiệu riêng, IP thương hiệu và kinh doanh kết nối Nhật–Việt. Tôi xem sự nghiệp của cố vấn Noh Hee-young là hình mẫu để phát triển năng lực hoạch định thương hiệu và tư duy kinh doanh.",
+    "长期目标包括自有品牌、品牌IP及连接日本与越南的事业。我以卢熙英顾问的职业发展为榜样，培养品牌策划能力与商业思维。"
+  ],
+  "롤모델": [
+    "롤모델",
+    "ロールモデル",
+    "Role model",
+    "Hình mẫu",
+    "榜样"
+  ],
+  "노희영 고문님": [
+    "노희영 고문님",
+    "ノ・ヒヨン顧問",
+    "Advisor Noh Hee-young",
+    "Cố vấn Noh Hee-young",
+    "卢熙英顾问"
   ]
 };
