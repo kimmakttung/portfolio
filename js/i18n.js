@@ -711,8 +711,8 @@ while (walker.nextNode()) {
   textNodes.push({node, original: node.textContent, key: node.textContent.trim()});
 }
 const attributeNodes = [];
-document.querySelectorAll('[placeholder],[aria-label]').forEach(node => {
-  for (const attribute of ['placeholder','aria-label']) {
+document.querySelectorAll('[placeholder],[aria-label],[alt]').forEach(node => {
+  for (const attribute of ['placeholder','aria-label','alt']) {
     const key = node.getAttribute(attribute);
     if (translations[key]) attributeNodes.push({node,attribute,key});
   }

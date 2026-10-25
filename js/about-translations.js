@@ -720,5 +720,12 @@ const aboutTranslations = {
     "Time-based action plans are still being organized. Unset deadlines and numerical targets are not listed.",
     "Kế hoạch hành động theo thời gian đang được sắp xếp. Các thời hạn và mục tiêu định lượng chưa xác định không được ghi vào.",
     "分阶段行动计划仍在整理中，未确定的期限和数值目标未予列出。"
+  ],
+  "김도현 프로필 사진": [
+    "김도현 프로필 사진",
+    "キム・ドヒョンのプロフィール写真",
+    "Profile photo of Kim Dohyun",
+    "Ảnh đại diện của Kim Dohyun",
+    "金道贤的个人照片"
   ]
 };
