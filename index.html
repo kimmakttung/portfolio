@@ -11,15 +11,18 @@
   <title>김도현 — 마케팅 · 기획</title>
   <link rel="stylesheet" href="css/portfolio.css?v=brand-i18n-2">
   <link rel="stylesheet" href="css/connection.css?v=brand-i18n-2">
-  <script src="js/experience.js?v=brand-i18n-2" defer></script>
-  <script src="js/project-store.js?v=brand-i18n-2" defer></script>
-  <script src="js/gallery-translations.js?v=brand-i18n-2" defer></script>
-  <script src="js/i18n.js?v=brand-i18n-2" defer></script>
+  <script src="js/experience.js?v=scroll-depth-1" defer></script>
+  <script src="js/study-projects.js?v=1" defer></script>
+  <script src="js/project-store.js?v=study-projects-1" defer></script>
+  <script src="js/gallery-translations.js?v=study-projects-1" defer></script>
+  <script src="js/i18n.js?v=portrait-flip-1" defer></script>
   <link rel="stylesheet" href="css/gallery.css?v=brand-i18n-2">
   <script src="js/gallery.js?v=brand-i18n-2" defer></script>
   <link rel="stylesheet" href="css/mobile.css?v=brand-i18n-2">
   <script src="js/mobile.js?v=brand-i18n-2" defer></script>
-  <link rel="stylesheet" href="css/enhancements.css?v=brand-i18n-2">
+  <link rel="stylesheet" href="css/enhancements.css?v=study-projects-1">
+  <link rel="stylesheet" href="css/scroll-depth.css?v=1">
+  <script src="js/scroll-depth.js?v=1" defer></script>
 </head>
 <body class="home-page" data-page-title="홈">
   <a class="skip" href="#main">본문으로 이동</a>
@@ -42,13 +45,13 @@
         <span class="space-label label-culture">문화</span><span class="space-label label-people">사람</span><span class="space-label label-brand">브랜드</span><span class="space-label label-experience">경험</span>
       </div>
       <p class="connection-eyebrow">KIM DOHYEON · CULTURE & BRAND</p>
-      <div class="connection-stage"><div class="connection-float"><h1 id="hero-title" class="connection-word">연결</h1></div></div>
+      <div class="connection-stage"><div class="connection-float"><h1 id="hero-title" class="connection-word"><button id="connection-spin" class="connection-word-button" type="button" aria-label="연결 회전하기" title="연결을 눌러 회전하기"><span class="connection-word-spin">연결</span></button></h1></div></div>
       <div class="connection-caption"><p>서로 다른 생각을 연결해, 새로운 가능성을 만듭니다.</p><span>관찰 → 연결 → 실행</span></div>
       <div class="connection-actions"><a class="button connection-cta" href="planner.html">기획서 작성 <span aria-hidden="true">↗</span></a><a class="connection-about" href="about.html">자세히 알아보기 <span aria-hidden="true">↗</span></a></div>
       <div class="connection-bottom wrap"><span>01 / CONNECTION</span><a class="connection-bottom-center" href="#project-gallery">스크롤로 갤러리 입장 ↓</a><span class="connection-indicator" aria-hidden="true"><i></i><i></i></span></div>
     </section>
     <div class="home-transition" aria-hidden="true"><div class="transition-haze"></div><svg class="transition-threads" viewBox="0 0 1440 240" preserveAspectRatio="none" focusable="false"><defs><linearGradient id="bridge-thread"><stop stop-color="#b0475c" stop-opacity="0"/><stop offset=".5" stop-color="#d9a77b" stop-opacity=".6"/><stop offset="1" stop-color="#b0475c" stop-opacity="0"/></linearGradient></defs><path d="M-80 180C240 20 410 240 760 105S1180 40 1520 150"/><path d="M-80 105C250 230 500 10 850 130S1240 200 1520 75"/><path class="transition-trace" d="M-80 180C240 20 410 240 760 105S1180 40 1520 150"/></svg><span class="transition-spine"></span></div>
-    <section id="project-gallery" class="gallery-shell" aria-labelledby="gallery-title"><div class="gallery-stage"><div class="gallery-architecture" aria-hidden="true"></div><div class="gallery-vignette" aria-hidden="true"></div><header class="gallery-heading"><p>THE PROJECT GALLERY</p><h2 id="gallery-title">경험의 전당</h2><span>생각이 작품이 되는 공간.</span><i aria-hidden="true">✧</i></header><div id="gallery-frames" class="gallery-frames"></div><div id="gallery-empty" class="gallery-empty" hidden><span aria-hidden="true">◇</span><h3>첫 번째 작품을 기다립니다.</h3><p>기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.</p><a href="planner.html" class="button">새 기획서 작성</a></div><nav class="gallery-controls" aria-label="프로젝트"><button id="gallery-prev" type="button" aria-label="이전 액자">←</button><p id="gallery-counter" role="status" aria-live="polite">00 / 00</p><button id="gallery-next" type="button" aria-label="다음 액자">→</button><a href="projects.html">프로젝트 관리</a></nav><p class="gallery-instruction">스크롤하며 프로젝트를 만나보세요. 액자를 누르면 상세 내용을 볼 수 있습니다.</p></div></section><p class="gallery-storage-note wrap">고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 프로젝트는 이 브라우저에 저장됩니다.</p>
+    <section id="project-gallery" class="gallery-shell" aria-labelledby="gallery-title"><div class="gallery-stage"><div class="gallery-architecture" aria-hidden="true"></div><div class="gallery-vignette" aria-hidden="true"></div><header class="gallery-heading"><p>THE PROJECT GALLERY</p><h2 id="gallery-title">경험의 전당</h2><span>생각이 작품이 되는 공간.</span><i aria-hidden="true">✧</i></header><div id="gallery-frames" class="gallery-frames"></div><div id="gallery-empty" class="gallery-empty" hidden><span aria-hidden="true">◇</span><h3>첫 번째 작품을 기다립니다.</h3><p>기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.</p><a href="planner.html" class="button">새 기획서 작성</a></div><nav class="gallery-controls" aria-label="프로젝트"><button id="gallery-prev" type="button" aria-label="이전 액자">←</button><p id="gallery-counter" role="status" aria-live="polite">00 / 00</p><button id="gallery-next" type="button" aria-label="다음 액자">→</button><a href="projects.html">프로젝트 관리</a></nav><p class="gallery-instruction">스크롤하며 프로젝트를 만나보세요. 액자를 누르면 상세 내용을 볼 수 있습니다.</p></div></section><p class="gallery-storage-note wrap">고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 새 프로젝트와 수정 사항은 이 브라우저에만 저장됩니다.</p>
   </main>
 </body>
 </html>

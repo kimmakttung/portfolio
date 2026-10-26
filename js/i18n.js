@@ -1,5 +1,10 @@
 'use strict';
 const translations = {
+  "연결 회전하기": ["연결 회전하기", "「つながり」を回転させる", "Spin the connection word", "Xoay chữ kết nối", "旋转连接文字"],
+  "연결을 눌러 회전하기": ["연결을 눌러 회전하기", "クリックして回転", "Click to spin", "Nhấn để xoay", "点击旋转"],
+  "프로필 사진 바꾸기": ["프로필 사진 바꾸기", "プロフィール写真を切り替える", "Switch profile photo", "Đổi ảnh hồ sơ", "切换个人照片"],
+  "클릭하면 사진이 바뀝니다": ["클릭하면 사진이 바뀝니다", "クリックすると写真が変わります", "Click to switch photos", "Nhấn để đổi ảnh", "点击切换照片"],
+  "김도현 일상 사진": ["김도현 일상 사진", "キム・ドヒョンの日常の写真", "Casual photo of KIM DOHYEON", "Ảnh đời thường của KIM DOHYEON", "KIM DOHYEON 的生活照"],
   "새 기획서 작성": ["새 기획서 작성", "新しい企画書を作成", "Create a proposal", "Tạo bản đề xuất", "创建策划书"],
   "김도현 — 마케팅 · 기획": [
     "김도현 — 마케팅 · 기획",

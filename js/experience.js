@@ -12,13 +12,22 @@ if(stage&&word&&window.matchMedia('(hover: hover) and (pointer: fine)').matches)
  stage.addEventListener('pointerleave',()=>{cancelAnimationFrame(frame);word.style.removeProperty('transform');});
  motionPreference.addEventListener('change',()=>{cancelAnimationFrame(frame);word.style.removeProperty('transform');});
 }
-if('IntersectionObserver' in window){
- const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{if(!entry.isIntersecting)return;if(!motionPreference.matches)entry.target.classList.add('is-entering');observer.unobserve(entry.target);});
- },{threshold:.08});
- document.querySelectorAll('.journey-card,.interest-card,.memory-section>h2,.journey-panel>h2,.plan-result,.planner-form,.social-card').forEach(element=>observer.observe(element));
+const wordButton=document.getElementById('connection-spin');
+const wordFace=wordButton?.querySelector('.connection-word-spin');
+if(wordButton&&wordFace){
+ let spin=null;
+ wordButton.addEventListener('click',()=>{
+  if(spin||motionPreference.matches||typeof wordFace.animate!=='function')return;
+  wordButton.setAttribute('aria-busy','true');
+  spin=wordFace.animate([
+   {transform:'translateZ(0) rotateY(0deg)'},
+   {transform:'translateZ(24px) rotateY(180deg)',offset:.5},
+   {transform:'translateZ(0) rotateY(360deg)'}
+  ],{duration:1150,easing:'cubic-bezier(.2,.65,.25,1)'});
+  spin.finished.catch(()=>{}).finally(()=>{spin=null;wordButton.removeAttribute('aria-busy');});
+ });
+ motionPreference.addEventListener('change',()=>{if(motionPreference.matches)spin?.cancel();});
 }
-
 const homeTransition=document.querySelector('.home-transition');
 if(homeTransition){
  let transitionFrame=0;

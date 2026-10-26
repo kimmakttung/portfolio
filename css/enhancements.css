@@ -1,2 +1,5 @@
 @charset "UTF-8";
 .header .brand,.footer .brand{display:inline-flex;align-items:center;justify-content:center;min-width:64px;min-height:60px;line-height:1;letter-spacing:0}.brand-logo{display:block;width:64px;height:60px;max-width:100%;object-fit:contain}.footer .brand-logo{width:52px;height:48px}.footer .brand{min-width:52px;min-height:48px}.brand:focus-visible{outline:2px solid #e5bba2;outline-offset:5px}.animations-paused *,.motion-offscreen *{animation-play-state:paused!important}.mind-translation-status{font-size:13px;color:#cba994;line-height:1.8;min-height:1.8em}.mind-translation-status:empty{min-height:0;margin:0}.mind-source{overflow-wrap:anywhere}@media(max-width:760px){.header .brand{min-width:52px;min-height:48px;margin-right:auto}.header .brand-logo{width:52px;height:48px}.mind-translation-status{font-size:13px}}
+
+.saved-project-badges{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;flex-shrink:0;max-width:45%}.saved-project-badges .status{font-size:11px;line-height:1.6}
+@media(max-width:760px){.saved-project-badges{justify-content:flex-start;max-width:100%}}

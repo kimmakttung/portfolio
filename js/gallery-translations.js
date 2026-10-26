@@ -1,5 +1,6 @@
 'use strict';
 const galleryTranslations = {
+  "고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 새 프로젝트와 수정 사항은 이 브라우저에만 저장됩니다.": ["고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 새 프로젝트와 수정 사항은 이 브라우저에만 저장됩니다.", "固定したプロジェクトを優先し、その後は保存日時の新しい順に展示します。新規プロジェクトと編集内容はこのブラウザーだけに保存されます。", "Pinned projects appear first, followed by the most recently saved. New projects and edits are stored only in this browser.", "Dự án được ghim xuất hiện trước, tiếp theo là các dự án lưu gần đây. Dự án mới và chỉnh sửa chỉ lưu trong trình duyệt này.", "置顶项目优先展示，其余按最近保存排序。新项目和修改仅保存在此浏览器中。"],
   "경험의 전당": [
     "경험의 전당",
     "経験のギャラリー",

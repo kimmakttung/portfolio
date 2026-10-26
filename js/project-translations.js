@@ -1,5 +1,15 @@
 'use strict';
 const projectTranslations = {
+  "PDF 다운로드 ↓": ["PDF 다운로드 ↓", "PDFをダウンロード ↓", "Download PDF ↓", "Tải PDF ↓", "下载 PDF ↓"],
+  "PDF를 만드는 중입니다.": ["PDF를 만드는 중입니다.", "PDFを作成中です。", "Creating PDF…", "Đang tạo PDF…", "正在生成 PDF…"],
+  "PDF 다운로드를 시작했습니다.": ["PDF 다운로드를 시작했습니다.", "PDFのダウンロードを開始しました。", "PDF download started.", "Đã bắt đầu tải PDF.", "已开始下载 PDF。"],
+  "PDF를 만들지 못했습니다. 다시 시도해 주세요.": ["PDF를 만들지 못했습니다. 다시 시도해 주세요.", "PDFを作成できませんでした。もう一度お試しください。", "Could not create the PDF. Please try again.", "Không thể tạo PDF. Vui lòng thử lại.", "无法生成 PDF，请重试。"],
+  "유학 경험 · 마인드맵 기반": ["유학 경험 · 마인드맵 기반", "留学経験・マインドマップより", "Study abroad · from mind map", "Du học · từ sơ đồ tư duy", "留学经历 · 基于思维导图"],
+  "유학 경험 · 내 수정본": ["유학 경험 · 내 수정본", "留学経験・自分の編集版", "Study abroad · my edited version", "Du học · bản tôi đã chỉnh sửa", "留学经历 · 我的修改版"],
+  "수정 내용 저장": ["수정 내용 저장", "変更を保存", "Save changes", "Lưu thay đổi", "保存修改"],
+  "유학 시절의 이벤트 기획서와 직접 만든 프로젝트를 모아 관리합니다.": ["유학 시절의 이벤트 기획서와 직접 만든 프로젝트를 모아 관리합니다.", "留学中のイベント企画書と自分で作成したプロジェクトをまとめて管理します。", "Browse proposals based on study-abroad events alongside projects you create.", "Quản lý các đề xuất dựa trên sự kiện thời du học cùng những dự án bạn tự tạo.", "集中管理留学期间活动的策划书和自行创建的项目。"],
+  "유학 경험 기획서는 공개 원본입니다. 새 프로젝트와 수정·삭제·이미지 설정은 이 브라우저에만 저장됩니다. 다른 기기에는 반영되지 않으니 중요한 내용은 다운로드해 주세요.": ["유학 경험 기획서는 공개 원본입니다. 새 프로젝트와 수정·삭제·이미지 설정은 이 브라우저에만 저장됩니다. 다른 기기에는 반영되지 않으니 중요한 내용은 다운로드해 주세요.", "留学経験の企画書は公開版です。新しいプロジェクトや編集・削除・画像設定はこのブラウザーだけに保存され、他の端末には反映されません。重要な内容はダウンロードしてください。", "The original study-abroad proposals are public. New projects, edits, deletions and image settings are stored only in this browser and do not sync to other devices. Download important work for safekeeping.", "Các đề xuất gốc về trải nghiệm du học được công khai. Dự án mới, chỉnh sửa, xóa và thiết lập hình ảnh chỉ lưu trong trình duyệt này, không đồng bộ sang thiết bị khác. Hãy tải nội dung quan trọng để lưu giữ.", "留学经历策划书的原始版本公开展示。新项目、修改、删除和图片设置仅保存在此浏览器，不会同步到其他设备。请下载重要内容以便保存。"],
+
   "내 기획 프로젝트": [
     "내 기획 프로젝트",
     "自分の企画プロジェクト",
