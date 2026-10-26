@@ -11,8 +11,10 @@
   -webkit-appearance: none;
   overflow: visible;
   clip-path: none;
+  border-radius: 50%;
+  box-sizing: border-box;
   cursor: pointer;
-  perspective: 900px;
+  perspective: 1100px;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
 }
@@ -28,9 +30,54 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  pointer-events: none;
   transform-style: preserve-3d;
   transform: rotateY(var(--profile-turn,0deg));
-  transition: transform 1.1s cubic-bezier(.18,.72,.22,1);
+}
+
+/* Tangent side panels form the cylinder without covering either photograph. */
+.profile-coin-edge {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  box-sizing: border-box;
+  width: var(--coin-edge-width,14px);
+  height: 14px;
+  margin-left: calc(var(--coin-edge-width,14px) * -.5);
+  margin-top: -7px;
+  background: linear-gradient(90deg,#62303c,#c49279 45%,#68303e 80%);
+  border-block: 1px solid #dfb99a;
+  transform: rotateZ(var(--coin-edge-angle)) translateY(calc(var(--coin-radius,138px) * -1 + 1px)) rotateX(90deg);
+  backface-visibility: visible;
+  pointer-events: none;
+}
+
+.profile-coin-face {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border: 1px solid #c5967c;
+  border-radius: 50%;
+  background: #35141f;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+}
+
+.profile-coin-front-face {
+  transform: translateZ(7px);
+}
+
+.profile-coin-back-face {
+  transform: rotateY(180deg) translateZ(7px);
+}
+
+.about-page .portrait-system .portrait-orbit,
+.about-page .portrait-system .portrait-satellite-track,
+.about-page .portrait-system .portrait-satellite {
+  pointer-events: none;
 }
 
 .about-page .portrait-system .profile-coin .profile-photo {
@@ -43,17 +90,18 @@
   border-radius: 50%;
   clip-path: circle(50% at 50% 50%);
   object-fit: cover;
+  pointer-events: none;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
 .about-page .portrait-system .profile-coin .profile-front {
-  transform: rotateY(0deg);
+  transform: none;
   object-position: 50% 20%;
 }
 
 .about-page .portrait-system .profile-coin .profile-back {
-  transform: rotateY(180deg);
+  transform: none;
   object-position: 50% 40%;
   mask-image: none;
   -webkit-mask-image: none;
@@ -87,11 +135,7 @@
 }
 
 .profile-frame.profile-flip-unavailable {
-  cursor: default;
-}
-
-.profile-flip-unavailable .profile-flip-mark {
-  display: none;
+  cursor: pointer;
 }
 
 @media (prefers-reduced-motion:reduce) {

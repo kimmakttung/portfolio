@@ -11,6 +11,8 @@ const galleryPhone=matchMedia('(max-width: 760px)');
 const galleryLandscape=matchMedia('(max-width: 950px) and (max-height: 520px) and (orientation: landscape)');
 let galleryPerStep=galleryPhone.matches?1:2;
 let exhibits=[],galleryPairs=0,activePair=-1,galleryFrame=0,galleryLayoutReady=false;
+const requestedExhibitId=new URLSearchParams(location.search).get('project');
+let requestedExhibitShown=false;
 function galleryNode(tag,text,className){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(className)element.className=className;return element;}
 function updateGallery(){
  galleryFrame=0;
@@ -38,10 +40,24 @@ function updateGallery(){
  });
 }
 function scheduleGallery(){if(document.hidden)return;if(!galleryFrame)galleryFrame=requestAnimationFrame(updateGallery);}
-function goToGalleryPair(index){
+function goToGalleryPair(index,behavior=galleryReduced.matches?'instant':'smooth'){
  const next=Math.max(0,Math.min(galleryPairs-1,index));
  const start=scrollY+galleryShell.getBoundingClientRect().top;const distance=galleryShell.offsetHeight-galleryStage.offsetHeight;
- scrollTo({top:start+(galleryPairs>1?next/(galleryPairs-1):0)*distance,behavior:galleryReduced.matches?'auto':'smooth'});
+ scrollTo({top:start+(galleryPairs>1?next/(galleryPairs-1):0)*distance,behavior});
+}
+function showRequestedExhibit(){
+ if(!requestedExhibitId||requestedExhibitShown)return;
+ requestAnimationFrame(()=>{
+  if(requestedExhibitShown)return;
+  const index=exhibits.findIndex(item=>item.project.id===requestedExhibitId);
+  if(index<0)return;
+  requestedExhibitShown=true;
+  const element=exhibits[index].element;
+  if(galleryReduced.matches||galleryLandscape.matches)element.scrollIntoView({behavior:'instant',block:'center'});
+  else goToGalleryPair(Math.floor(index/galleryPerStep),'instant');
+  updateGallery();
+  element.focus({preventScroll:true});
+ });
 }
 galleryPrevious.addEventListener('click',()=>goToGalleryPair(activePair-1));galleryNext.addEventListener('click',()=>goToGalleryPair(activePair+1));
 function renderGallery(){
@@ -54,6 +70,7 @@ function renderGallery(){
  if(!projects.length){galleryEmpty.querySelector('h3').textContent=t('첫 번째 작품을 기다립니다.');galleryEmpty.querySelector('p').textContent=t('기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.');galleryCounter.textContent='00 / 00';galleryPrevious.disabled=galleryNext.disabled=true;}
  projects.forEach((project,index)=>{
   const frame=galleryNode('a',undefined,'gallery-frame');frame.href='projects.html?project='+encodeURIComponent(project.id);frame.dataset.projectId=project.id;
+  if(project.id===requestedExhibitId)frame.classList.add('is-gallery-selection');
   const artwork=galleryNode('div',undefined,'gallery-artwork');const cover=galleryNode('div',undefined,'gallery-cover');const image=projectStore.imageSource(project.coverImage);
   if(image){const img=galleryNode('img');img.src=image;img.alt='';img.loading=index<4?'eager':'lazy';img.decoding='async';img.addEventListener('error',()=>{img.remove();cover.classList.add('gallery-cover-placeholder');cover.append(galleryNode('span',project.title,'gallery-type-cover'));},{once:true});cover.append(img);}
   else{cover.classList.add('gallery-cover-placeholder');cover.append(galleryNode('span',String(index+1).padStart(2,'0'),'gallery-cover-number'),galleryNode('span',project.title,'gallery-type-cover'),galleryNode('small',t('대표 이미지 추가')));}
@@ -63,7 +80,8 @@ function renderGallery(){
   frame.addEventListener('pointerleave',()=>{artwork.style.removeProperty('--hover-x');artwork.style.removeProperty('--hover-y');});
  });
  updateGallery();
+ showRequestedExhibit();
 }
 addEventListener('scroll',scheduleGallery,{passive:true});addEventListener('resize',scheduleGallery);galleryReduced.addEventListener('change',()=>{activePair=-1;scheduleGallery();});galleryPhone.addEventListener('change',renderGallery);galleryLandscape.addEventListener('change',()=>{activePair=-1;scheduleGallery();});
 addEventListener('storage',event=>{if(event.key===projectStore.key||event.key===null)renderGallery();});
-addEventListener('pageshow',renderGallery);document.addEventListener('languagechange',renderGallery);renderGallery();
+addEventListener('pageshow',event=>{if(event.persisted)renderGallery();});document.addEventListener('languagechange',renderGallery);renderGallery();

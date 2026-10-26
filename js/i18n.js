@@ -1,5 +1,11 @@
 'use strict';
 const translations = {
+  "기획 프로젝트 목록 보기": ["기획 프로젝트 목록 보기", "企画プロジェクト一覧を見る", "View planning projects", "Xem danh sách dự án", "查看策划项目列表"],
+  "프로젝트 목록 보기": ["프로젝트 목록 보기", "プロジェクト一覧を見る", "View projects", "Xem dự án", "查看项目列表"],
+  "프로젝트 탐색": ["프로젝트 탐색", "プロジェクトナビゲーション", "Project navigation", "Điều hướng dự án", "项目导航"],
+  "관심 분야로 돌아가기": ["관심 분야로 돌아가기", "関心分野に戻る", "Back to interests", "Trở về lĩnh vực quan tâm", "返回兴趣领域"],
+  "경험의 전당 보기": ["경험의 전당 보기", "経験の殿堂を見る", "Explore the gallery", "Khám phá phòng trưng bày", "查看经验展厅"],
+  "전당에서 보기": ["전당에서 보기", "ギャラリーで見る", "View in gallery", "Xem trong phòng trưng bày", "在展厅中查看"],
   "연결 회전하기": ["연결 회전하기", "「つながり」を回転させる", "Spin the connection word", "Xoay chữ kết nối", "旋转连接文字"],
   "연결을 눌러 회전하기": ["연결을 눌러 회전하기", "クリックして回転", "Click to spin", "Nhấn để xoay", "点击旋转"],
   "프로필 사진 바꾸기": ["프로필 사진 바꾸기", "プロフィール写真を切り替える", "Switch profile photo", "Đổi ảnh hồ sơ", "切换个人照片"],

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/* Real depth planes stay attached while the whole word rotates. */
+.home-page .connection-word.has-solid-word,
+.has-solid-word .connection-word-button,
+.has-solid-word .connection-word-spin {
+  transform-style: preserve-3d;
+}
+
+.has-solid-word .connection-word-button {
+  text-shadow: none;
+  overflow: visible;
+}
+
+.has-solid-word .connection-word-spin {
+  position: relative;
+  isolation: auto;
+}
+
+.word-solid-front,
+.word-solid-layer {
+  display: block;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  white-space: inherit;
+  transform-style: preserve-3d;
+}
+
+.word-solid-front {
+  position: relative;
+  color: #e8d9c5;
+  text-shadow: 0 1px 0 #fff1dd,0 -1px 0 #9b7068;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.word-solid-layer {
+  position: absolute;
+  inset: 0;
+  color: var(--solid-color,#68152c);
+  transform: translateZ(var(--solid-z,-1px));
+  -webkit-text-stroke: .65px var(--solid-color,#68152c);
+  text-shadow: none;
+  /* Extruded edges remain part of the same native button hit target. */
+  pointer-events: auto;
+  user-select: none;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+}
+
+.word-solid-back-cap {
+  text-shadow: 0 1px 0 #b45466;
+}
+
+@media (max-width:760px) {
+  .word-solid-layer {
+    transform: translateZ(calc(var(--solid-z,-1px) * .68));
+    -webkit-text-stroke-width: .45px;
+  }
+}

@@ -46,6 +46,7 @@ function renderProjects(){
   }
   details.append(fields,node('h3',t('기획서 초안')),node('pre',project.content,'saved-project-content'));
   const actions=node('div',undefined,'result-actions');const edit=node('a',t('수정하기'),'button');edit.href='planner.html?project='+encodeURIComponent(project.id);
+  const exhibit=node('a',t('전당에서 보기'),'project-exhibit-link');exhibit.href='index.html?project='+encodeURIComponent(project.id)+'#project-gallery';
   const download=node('button',t('텍스트 다운로드 ↓'));download.type='button';download.addEventListener('click',()=>{
    const url=URL.createObjectURL(new Blob(['\ufeff'+project.content],{type:'text/plain;charset=utf-8'}));const a=node('a');a.href=url;a.download='project-'+project.id+'.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
@@ -61,10 +62,11 @@ function renderProjects(){
    if(!confirm(t('이 프로젝트를 삭제할까요? 삭제 후에는 되돌릴 수 없습니다.')))return;
    try{projectStore.remove(project.id);renderProjects();projectStatus.textContent=t('프로젝트를 삭제했습니다.');}catch{projectStatus.textContent=t('삭제하지 못했습니다. 브라우저 저장 공간을 확인해 주세요.');}
   });
-  actions.append(edit,pdf,download,remove);card.append(heading,updated,appearanceControls(project),details,actions);projectList.append(card);
+  actions.append(edit,exhibit,pdf,download,remove);card.append(heading,updated,appearanceControls(project),details,actions);projectList.append(card);
   if(project.id===galleryRequestedProject){details.open=true;card.classList.add('is-gallery-selection');if(!projectRevealDone){projectRevealDone=true;requestAnimationFrame(()=>card.scrollIntoView({behavior:'auto',block:'start'}));}}
  });
 }
 document.addEventListener('languagechange',()=>{projectStatus.textContent='';renderProjects();});
 window.addEventListener('storage',event=>{if(event.key===projectStore.key||event.key===null)renderProjects();});
+window.addEventListener('pageshow',event=>{if(event.persisted)renderProjects();});
 renderProjects();
