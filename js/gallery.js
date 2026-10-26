@@ -63,13 +63,13 @@ galleryPrevious.addEventListener('click',()=>goToGalleryPair(activePair-1));gall
 function renderGallery(){
  galleryFrames.replaceChildren();exhibits=[];activePair=-1;galleryLayoutReady=false;
  let projects;
- try{projects=projectStore.list();}catch{galleryEmpty.hidden=false;galleryEmpty.querySelector('h3').textContent=t('갤러리를 불러오지 못했습니다. 저장된 프로젝트는 변경하지 않았습니다.');galleryEmpty.querySelector('p').textContent='';galleryCounter.textContent='00 / 00';galleryPairs=0;galleryPrevious.disabled=galleryNext.disabled=true;galleryShell.style.setProperty('--gallery-height','130svh');return;}
+ try{const merged=new Map(projectStore.list().map(project=>[project.id,project]));for(const cloud of (window.portfolioCloudPublished||[]))merged.set(cloud.id,cloud);projects=[...merged.values()];}catch{galleryEmpty.hidden=false;galleryEmpty.querySelector('h3').textContent=t('갤러리를 불러오지 못했습니다. 저장된 프로젝트는 변경하지 않았습니다.');galleryEmpty.querySelector('p').textContent='';galleryCounter.textContent='00 / 00';galleryPairs=0;galleryPrevious.disabled=galleryNext.disabled=true;galleryShell.style.setProperty('--gallery-height','130svh');return;}
  projects.sort((a,b)=>Number(Boolean(b.pinned))-Number(Boolean(a.pinned))||b.updatedAt.localeCompare(a.updatedAt));
  galleryPerStep=galleryPhone.matches?1:2;galleryPairs=Math.ceil(projects.length/galleryPerStep);galleryEmpty.hidden=projects.length>0;
  galleryShell.style.setProperty('--gallery-height',(galleryPairs>1?100+(galleryPairs-1)*(galleryPerStep===1?65:85):130)+'svh');
  if(!projects.length){galleryEmpty.querySelector('h3').textContent=t('첫 번째 작품을 기다립니다.');galleryEmpty.querySelector('p').textContent=t('기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.');galleryCounter.textContent='00 / 00';galleryPrevious.disabled=galleryNext.disabled=true;}
  projects.forEach((project,index)=>{
-  const frame=galleryNode('a',undefined,'gallery-frame');frame.href='projects.html?project='+encodeURIComponent(project.id);frame.dataset.projectId=project.id;
+  const frame=galleryNode('a',undefined,'gallery-frame');frame.href=(project.cloud?'exhibit.html?project=':'projects.html?project=')+encodeURIComponent(project.id);frame.dataset.projectId=project.id;
   if(project.id===requestedExhibitId)frame.classList.add('is-gallery-selection');
   const artwork=galleryNode('div',undefined,'gallery-artwork');const cover=galleryNode('div',undefined,'gallery-cover');const image=projectStore.imageSource(project.coverImage);
   if(image){const img=galleryNode('img');img.src=image;img.alt='';img.loading=index<4?'eager':'lazy';img.decoding='async';img.addEventListener('error',()=>{img.remove();cover.classList.add('gallery-cover-placeholder');cover.append(galleryNode('span',project.title,'gallery-type-cover'));},{once:true});cover.append(img);}
@@ -84,4 +84,4 @@ function renderGallery(){
 }
 addEventListener('scroll',scheduleGallery,{passive:true});addEventListener('resize',scheduleGallery);galleryReduced.addEventListener('change',()=>{activePair=-1;scheduleGallery();});galleryPhone.addEventListener('change',renderGallery);galleryLandscape.addEventListener('change',()=>{activePair=-1;scheduleGallery();});
 addEventListener('storage',event=>{if(event.key===projectStore.key||event.key===null)renderGallery();});
-addEventListener('pageshow',event=>{if(event.persisted)renderGallery();});document.addEventListener('languagechange',renderGallery);renderGallery();
+addEventListener('pageshow',event=>{if(event.persisted)renderGallery();});document.addEventListener('languagechange',renderGallery);document.addEventListener('portfolio-cloud-updated',renderGallery);renderGallery();
