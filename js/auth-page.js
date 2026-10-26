@@ -15,12 +15,15 @@ if (!client) {
   message.textContent = '데이터베이스 연결 준비 중입니다.';
   submit.disabled = google.disabled = true;
 }
+if (!config.allowEmailSignup) toggle.hidden = true;
+if (!config.allowGoogleLogin) google.hidden = true;
 toggle.addEventListener('click', () => {
   register = !register;
   nameWrap.hidden = !register;
   submit.textContent = register ? '회원가입' : '로그인';
   toggle.textContent = register ? '이미 계정이 있나요? 로그인' : '계정이 없나요? 회원가입';
   document.getElementById('password').autocomplete = register ? 'new-password' : 'current-password';
+  document.getElementById('password').minLength = register ? 8 : 0;
   message.textContent = '';
 });
 const redirect = new URLSearchParams(location.search).get('next');
@@ -33,7 +36,7 @@ async function enter() {
 if (client) enter().catch(() => {});
 form.addEventListener('submit', async event => {
   event.preventDefault();
-  if (!client) return;
+  if (!client || (register && !config.allowEmailSignup)) return;
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
   submit.disabled = true;
@@ -58,7 +61,7 @@ form.addEventListener('submit', async event => {
   } finally { submit.disabled = false; }
 });
 google.addEventListener('click', async () => {
-  if (!client) return;
+  if (!client || !config.allowGoogleLogin) return;
   google.disabled = true;
   message.textContent = 'Google 로그인으로 이동합니다…';
   const { error } = await client.auth.signInWithOAuth({
