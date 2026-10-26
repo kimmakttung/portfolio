@@ -34,10 +34,34 @@ document.addEventListener('languagechange',localizeNoteLabels);
 
 const originalToggle=document.getElementById('mind-original-toggle');
 const mindmapEntries=[...document.querySelectorAll('[data-source-topic],[data-source-note]')].map(node=>({node,original:node.textContent}));
-function renderMindmapLanguage(){
- const korean=currentLanguage==='ko'&&!originalToggle.checked;
- mindmapEntries.forEach(({node,original})=>{node.textContent=korean?(mindmapKorean[original]??original):original;});
- document.querySelectorAll('[data-mind-source]').forEach(node=>node.setAttribute('lang',korean?'ko':'ja'));
+const mindmapKeys=Object.keys(mindmapKorean);
+const mindmapIndexes=new Map(mindmapKeys.map((key,index)=>[key,index]));
+const mindmapLocaleCache=new Map();
+let mindmapLanguageRequest=0;
+const mindmapTranslationStatus=document.getElementById('mind-translation-status');
+async function loadMindmapLanguage(language){
+ if(!mindmapLocaleCache.has(language)){
+  const loading=fetch('data/mindmap/'+encodeURIComponent(language)+'.json?v=1').then(response=>{
+   if(!response.ok)throw Error('HTTP '+response.status);return response.json();
+  }).then(values=>{if(!Array.isArray(values)||values.length!==mindmapKeys.length||!values.every(value=>typeof value==='string'&&value.length))throw Error('Incomplete translation');return values;}).catch(error=>{mindmapLocaleCache.delete(language);throw error;});
+  mindmapLocaleCache.set(language,loading);
+ }
+ return mindmapLocaleCache.get(language);
+}
+async function renderMindmapLanguage(){
+ const request=++mindmapLanguageRequest;const language=currentLanguage;const originalView=originalToggle.checked;
+ let values=null;
+ if(!originalView&&language!=='ko'){
+  mindmapTranslationStatus.textContent=t('마인드맵 번역을 불러오는 중입니다.');
+  try{values=await loadMindmapLanguage(language);}
+  catch{if(request!==mindmapLanguageRequest)return;mindmapTranslationStatus.textContent=t('번역을 불러오지 못해 원문을 표시합니다. 언어를 다시 선택하면 재시도합니다.');mindmapEntries.forEach(({node,original})=>{node.textContent=original;});document.querySelectorAll('[data-mind-source]').forEach(node=>node.removeAttribute('lang'));document.body.dataset.mindLanguage='original';return;}
+ }
+ if(request!==mindmapLanguageRequest)return;
+ mindmapEntries.forEach(({node,original})=>{
+  node.textContent=originalView?original:language==='ko'?(mindmapKorean[original]??original):(values[mindmapIndexes.get(original)]??original);
+ });
+ document.querySelectorAll('[data-mind-source]').forEach(node=>{if(originalView)node.removeAttribute('lang');else node.setAttribute('lang',language);});
+ document.body.dataset.mindLanguage=originalView?'original':language;mindmapTranslationStatus.textContent='';
 }
 originalToggle.addEventListener('change',renderMindmapLanguage);
 document.addEventListener('languagechange',renderMindmapLanguage);

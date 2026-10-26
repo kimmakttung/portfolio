@@ -10,12 +10,12 @@ const galleryReduced=matchMedia('(prefers-reduced-motion: reduce)');
 const galleryPhone=matchMedia('(max-width: 760px)');
 const galleryLandscape=matchMedia('(max-width: 950px) and (max-height: 520px) and (orientation: landscape)');
 let galleryPerStep=galleryPhone.matches?1:2;
-let exhibits=[],galleryPairs=0,activePair=-1,galleryFrame=0;
+let exhibits=[],galleryPairs=0,activePair=-1,galleryFrame=0,galleryLayoutReady=false;
 function galleryNode(tag,text,className){const element=document.createElement(tag);if(text!==undefined)element.textContent=text;if(className)element.className=className;return element;}
 function updateGallery(){
  galleryFrame=0;
  if(!exhibits.length)return;
- const bounds=galleryShell.getBoundingClientRect();const distance=Math.max(1,galleryShell.offsetHeight-galleryStage.offsetHeight);
+ const bounds=galleryShell.getBoundingClientRect();if(galleryLayoutReady&&(bounds.bottom<0||bounds.top>innerHeight+100))return;galleryLayoutReady=true;const distance=Math.max(1,galleryShell.offsetHeight-galleryStage.offsetHeight);
  const progress=Math.max(0,Math.min(1,-bounds.top/distance));const travel=progress*Math.max(0,galleryPairs-1);
  galleryShell.style.setProperty('--journey',String(progress));
  const current=Math.min(galleryPairs-1,Math.max(0,Math.round(travel)));
@@ -30,13 +30,14 @@ function updateGallery(){
   const y=offset>=0?-offset*18:offset*22;
   const opacity=Math.max(0,Math.min(1,offset<0?1+offset*2:1));
   const visible=offset>-.55&&offset<3.5;
+  if(!visible){element.style.visibility='hidden';element.style.opacity='0';element.style.pointerEvents='none';element.tabIndex=-1;element.setAttribute('aria-hidden','true');return;}
   element.style.transform=`translate(-50%,-50%) translate3d(${x}px,${y}px,0) scale(${scale}) rotateY(${side*-14}deg)`;
   element.style.filter=`brightness(${Math.max(.35,1-Math.max(0,offset)*.2)})`;element.style.opacity=visible?String(opacity):'0';element.style.visibility=visible?'visible':'hidden';element.style.zIndex=String(100-Math.round(offset*10));
   const clickable=visible&&Math.abs(offset)<.6;
   element.style.pointerEvents=clickable?'auto':'none';element.tabIndex=clickable?0:-1;element.setAttribute('aria-hidden',clickable?'false':'true');
  });
 }
-function scheduleGallery(){if(!galleryFrame)galleryFrame=requestAnimationFrame(updateGallery);}
+function scheduleGallery(){if(document.hidden)return;if(!galleryFrame)galleryFrame=requestAnimationFrame(updateGallery);}
 function goToGalleryPair(index){
  const next=Math.max(0,Math.min(galleryPairs-1,index));
  const start=scrollY+galleryShell.getBoundingClientRect().top;const distance=galleryShell.offsetHeight-galleryStage.offsetHeight;
@@ -44,7 +45,7 @@ function goToGalleryPair(index){
 }
 galleryPrevious.addEventListener('click',()=>goToGalleryPair(activePair-1));galleryNext.addEventListener('click',()=>goToGalleryPair(activePair+1));
 function renderGallery(){
- galleryFrames.replaceChildren();exhibits=[];activePair=-1;
+ galleryFrames.replaceChildren();exhibits=[];activePair=-1;galleryLayoutReady=false;
  let projects;
  try{projects=projectStore.list();}catch{galleryEmpty.hidden=false;galleryEmpty.querySelector('h3').textContent=t('갤러리를 불러오지 못했습니다. 저장된 프로젝트는 변경하지 않았습니다.');galleryEmpty.querySelector('p').textContent='';galleryCounter.textContent='00 / 00';galleryPairs=0;galleryPrevious.disabled=galleryNext.disabled=true;galleryShell.style.setProperty('--gallery-height','130svh');return;}
  projects.sort((a,b)=>Number(Boolean(b.pinned))-Number(Boolean(a.pinned))||b.updatedAt.localeCompare(a.updatedAt));

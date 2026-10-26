@@ -22,16 +22,26 @@ if('IntersectionObserver' in window){
 const homeTransition=document.querySelector('.home-transition');
 if(homeTransition){
  let transitionFrame=0;
+ const transitionHero=document.querySelector('.connection-hero');const transitionGallery=document.querySelector('.gallery-stage');
  function renderHomeTransition(){
-  transitionFrame=0;const box=homeTransition.getBoundingClientRect();
+  transitionFrame=0;const box=homeTransition.getBoundingClientRect();const heroBox=transitionHero?.getBoundingClientRect();const galleryBox=transitionGallery?.getBoundingClientRect();
   const progress=Math.max(0,Math.min(1,(innerHeight-box.top)/(innerHeight+box.height)));
   homeTransition.style.setProperty('--transition-progress',String(progress));
-  const hero=document.querySelector('.connection-hero');const gallery=document.querySelector('.gallery-stage');
+  const hero=transitionHero;const gallery=transitionGallery;
   const ease=value=>{const x=Math.max(0,Math.min(1,value));return x*x*(3-2*x);};
-  if(hero){const r=hero.getBoundingClientRect();const faded=ease(Math.max(0,-r.top)/Math.max(1,r.height*.7));hero.style.setProperty('--home-visibility',String(1-faded));}
-  if(gallery){const r=gallery.getBoundingClientRect();const revealed=ease((innerHeight*.95-r.top)/Math.max(1,innerHeight*.65));gallery.style.setProperty('--gallery-visibility',String(revealed));}
+  if(hero){const r=heroBox;const faded=ease(Math.max(0,-r.top)/Math.max(1,r.height*.7));hero.style.setProperty('--home-visibility',String(1-faded));}
+  if(gallery){const r=galleryBox;const revealed=ease((innerHeight*.95-r.top)/Math.max(1,innerHeight*.65));gallery.style.setProperty('--gallery-visibility',String(revealed));}
 
  }
- function scheduleHomeTransition(){if(!transitionFrame)transitionFrame=requestAnimationFrame(renderHomeTransition);}
+ function scheduleHomeTransition(){if(document.hidden)return;if(!transitionFrame)transitionFrame=requestAnimationFrame(renderHomeTransition);}
  addEventListener('scroll',scheduleHomeTransition,{passive:true});addEventListener('resize',scheduleHomeTransition);renderHomeTransition();
 }
+
+if('IntersectionObserver' in window){
+ const motionObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>entry.target.classList.toggle('motion-offscreen',!entry.isIntersecting));},{rootMargin:'80px'});
+ document.querySelectorAll('.connection-hero,.home-transition,.gallery-shell,.portrait-stage,.network-orbit').forEach(element=>motionObserver.observe(element));
+}
+document.addEventListener('visibilitychange',()=>{
+ document.documentElement.classList.toggle('animations-paused',document.hidden);
+ if(!document.hidden)dispatchEvent(new Event('resize'));
+});

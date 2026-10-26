@@ -3,9 +3,9 @@ const aboutTranslations = {
   "김도현 프로필 사진": [
     "김도현 프로필 사진",
     "キム・ドヒョンのプロフィール写真",
-    "Profile photo of Kim Dohyun",
-    "Ảnh đại diện của Kim Dohyun",
-    "金道贤的个人照片"
+    "Profile photo of KIM DOHYEON",
+    "Ảnh đại diện của KIM DOHYEON",
+    "KIM DOHYEON的个人照片"
   ],
   "경험에서 배우고, 다음을 기획합니다.": [
     "경험에서 배우고, 다음을 기획합니다.",
@@ -252,20 +252,6 @@ const aboutTranslations = {
     "Tôi thích chuyển tài liệu hữu ích thành nhiệm vụ thực hành và kết hợp học tập, vận động, tìm việc thành hệ thống bền vững. Các sơ đồ bên dưới giữ nguyên trải nghiệm và suy nghĩ làm nền tảng.",
     "倾向于将有价值的文章和资料转化为实践任务，把学习、运动和求职整合为持续执行的系统。下方导图原文记录了这些方向背后的经历与思考。"
   ],
-  "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 한국어에서는 전체 한국어 번역을 표시하고, 원문도 그대로 확인할 수 있습니다.": [
-    "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 한국어에서는 전체 한국어 번역을 표시하고, 원문도 그대로 확인할 수 있습니다.",
-    "2つのマインドマップのトピックとメモを省略せず掲載しています。韓国語では全文の翻訳を表示し、原文も確認できます。",
-    "Every topic and note from both mind maps is included. Korean mode shows a full Korean translation; the originals remain available.",
-    "Toàn bộ chủ đề và ghi chú được giữ đầy đủ. Chế độ tiếng Hàn hiển thị bản dịch đầy đủ và vẫn có thể xem bản gốc.",
-    "完整收录两份思维导图的主题和备注。韩语模式显示完整韩语译文，也可查看原文。"
-  ],
-  "한국어 선택 시 번역문을, 다른 언어 선택 시 원문을 표시합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.": [
-    "한국어 선택 시 번역문을, 다른 언어 선택 시 원문을 표시합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.",
-    "韓国語では翻訳、それ以外の言語では原文を表示します。記入ガイドや未完成項目も省略していません。",
-    "Korean displays the translation; other languages display the original text. Writing prompts and unfinished entries are also included.",
-    "Tiếng Hàn hiển thị bản dịch; các ngôn ngữ khác hiển thị bản gốc. Hướng dẫn và mục chưa hoàn thiện cũng được giữ lại.",
-    "选择韩语显示译文，其他语言显示原文，填写提示和未完成项也完整保留。"
-  ],
   "번역 대신 원문 보기": [
     "번역 대신 원문 보기",
     "翻訳ではなく原文を表示",
@@ -335,5 +321,33 @@ const aboutTranslations = {
     "Advisor Noh Hee-young",
     "Cố vấn Noh Hee-young",
     "卢熙英顾问"
+  ],
+  "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 선택한 언어로 전체 내용을 읽고, 원문도 그대로 확인할 수 있습니다.": [
+    "두 마인드맵의 모든 주제와 메모를 빠짐없이 수록했습니다. 선택한 언어로 전체 내용을 읽고, 원문도 그대로 확인할 수 있습니다.",
+    "2つのマインドマップの全トピックとメモを掲載しています。選択した言語で全文を読め、原文も確認できます。",
+    "Every topic and note from both mind maps is included. Read the full content in your selected language or view the originals.",
+    "Toàn bộ chủ đề và ghi chú được giữ đầy đủ. Có thể đọc toàn bộ bằng ngôn ngữ đã chọn hoặc xem nguyên văn.",
+    "完整收录两份思维导图的所有主题和备注，可使用所选语言阅读全文，也可查看原文。"
+  ],
+  "한국어·일본어·영어·베트남어·중국어를 지원합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.": [
+    "한국어·일본어·영어·베트남어·중국어를 지원합니다. 작성 안내와 미완성 항목도 생략하지 않았습니다.",
+    "韓国語・日本語・英語・ベトナム語・中国語に対応。記入ガイドや未完成項目も省略していません。",
+    "Available in Korean, Japanese, English, Vietnamese and Chinese. Writing prompts and unfinished entries are also preserved.",
+    "Hỗ trợ tiếng Hàn, Nhật, Anh, Việt và Trung. Hướng dẫn và mục chưa hoàn thiện cũng được giữ lại.",
+    "支持韩语、日语、英语、越南语和中文，也保留填写提示及未完成项目。"
+  ],
+  "마인드맵 번역을 불러오는 중입니다.": [
+    "마인드맵 번역을 불러오는 중입니다.",
+    "マインドマップの翻訳を読み込んでいます。",
+    "Loading mind map translation.",
+    "Đang tải bản dịch sơ đồ.",
+    "正在加载思维导图译文。"
+  ],
+  "번역을 불러오지 못해 원문을 표시합니다. 언어를 다시 선택하면 재시도합니다.": [
+    "번역을 불러오지 못해 원문을 표시합니다. 언어를 다시 선택하면 재시도합니다.",
+    "翻訳を読み込めないため原文を表示しています。言語を選び直すと再試行します。",
+    "Translation could not be loaded; showing the original. Select the language again to retry.",
+    "Không tải được bản dịch nên hiển thị bản gốc. Chọn lại ngôn ngữ để thử lại.",
+    "译文加载失败，暂时显示原文。重新选择语言可重试。"
   ]
 };

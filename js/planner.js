@@ -15,6 +15,7 @@ function generatePlan(data) {
   return '# ' + data.title + '\n\n' + t('기획 유형') + ': ' + typeLabel + '\n' + locale.state + '\n\n' + sections.map((body,index) => (index + 1) + '. ' + locale.headings[index] + '\n' + body).join('\n\n') + '\n';
 }
 let activeProject = null;
+let pendingProjectSave=0;
 const form = document.getElementById('planner-form');
 const output = document.getElementById('plan-output');
 const status = document.getElementById('plan-status');
@@ -28,10 +29,13 @@ form.addEventListener('submit', event => {
   for (const name of ['title','background','goal','target','idea']) {
     if (!data[name]) { form.elements[name].focus(); status.textContent = t('필수 항목에 내용을 입력해 주세요.'); return; }
   }
+  clearTimeout(pendingProjectSave);pendingProjectSave=0;
   output.value = generatePlan(data);
   syncActions(); persistProject(data); output.focus();
 });
-output.addEventListener('input', () => { syncActions(); if(activeProject) persistProject(activeProject.inputs); else status.textContent = t('초안 편집 중'); });
+function flushProjectEdits(){if(pendingProjectSave){clearTimeout(pendingProjectSave);pendingProjectSave=0;if(activeProject)persistProject(activeProject.inputs);}}
+output.addEventListener('input',()=>{syncActions();status.textContent=t('초안 편집 중');clearTimeout(pendingProjectSave);if(activeProject)pendingProjectSave=setTimeout(()=>{pendingProjectSave=0;persistProject(activeProject.inputs);},300);});
+output.addEventListener('blur',flushProjectEdits);addEventListener('pagehide',flushProjectEdits);
 copy.addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(output.value); status.textContent = t('복사했습니다.'); }
   catch { output.focus(); output.select(); status.textContent = t('복사 권한을 사용할 수 없습니다. 선택된 내용을 Ctrl+C 또는 ⌘C로 복사해 주세요.'); }

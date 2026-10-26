@@ -1,11 +1,12 @@
 'use strict';
 const translations = {
+  "새 기획서 작성": ["새 기획서 작성", "新しい企画書を作成", "Create a proposal", "Tạo bản đề xuất", "创建策划书"],
   "김도현 — 마케팅 · 기획": [
     "김도현 — 마케팅 · 기획",
     "キム・ドヒョン — マーケティング・企画",
-    "Kim Dohyun — Marketing & Planning",
-    "Kim Dohyun — Marketing & Lập kế hoạch",
-    "金道贤 — 营销与策划"
+    "KIM DOHYEON — Marketing & Planning",
+    "KIM DOHYEON — Marketing & Lập kế hoạch",
+    "KIM DOHYEON — 营销与策划"
   ],
   "본문으로 이동": [
     "본문으로 이동",
@@ -17,9 +18,9 @@ const translations = {
   "도현": [
     "도현",
     "ドヒョン",
-    "Dohyun",
-    "Dohyun",
-    "道贤"
+    "KIM DOHYEON",
+    "KIM DOHYEON",
+    "KIM DOHYEON"
   ],
   "소개": [
     "소개",
@@ -94,9 +95,9 @@ const translations = {
   "김도현": [
     "김도현",
     "キム・ドヒョン",
-    "Kim Dohyun",
-    "Kim Dohyun",
-    "金道贤"
+    "KIM DOHYEON",
+    "KIM DOHYEON",
+    "KIM DOHYEON"
   ],
   "입니다.": [
     "입니다.",
@@ -150,9 +151,9 @@ const translations = {
   "김도현입니다": [
     "김도현입니다",
     "キム・ドヒョンです",
-    "I'm Kim Dohyun",
-    "Tôi là Kim Dohyun",
-    "我是金道贤"
+    "I'm KIM DOHYEON",
+    "Tôi là KIM DOHYEON",
+    "我是KIM DOHYEON"
   ],
   "마케팅과 기획을 향해": [
     "마케팅과 기획을 향해",
@@ -528,9 +529,9 @@ const translations = {
   "© 김도현. All rights reserved.": [
     "© 김도현. All rights reserved.",
     "© キム・ドヒョン. All rights reserved.",
-    "© Kim Dohyun. All rights reserved.",
-    "© Kim Dohyun. All rights reserved.",
-    "© 金道贤. All rights reserved."
+    "© KIM DOHYEON. All rights reserved.",
+    "© KIM DOHYEON. All rights reserved.",
+    "© KIM DOHYEON. All rights reserved."
   ],
   "맨 위로": [
     "맨 위로",
@@ -619,9 +620,9 @@ const translations = {
   "김도현 홈": [
     "김도현 홈",
     "キム・ドヒョン ホーム",
-    "Kim Dohyun home",
-    "Trang chủ Kim Dohyun",
-    "金道贤主页"
+    "KIM DOHYEON home",
+    "Trang chủ KIM DOHYEON",
+    "KIM DOHYEON主页"
   ],
   "마케팅과 기획을 연결하는 그래픽": [
     "마케팅과 기획을 연결하는 그래픽",
@@ -706,6 +707,7 @@ if (typeof editorTranslations !== 'undefined') Object.assign(translations, edito
 if (typeof galleryTranslations !== 'undefined') Object.assign(translations, galleryTranslations);
 Object.assign(translations, {"문의하기": ["문의하기", "お問い合わせ", "Get in touch", "Gửi yêu cầu", "联系咨询"], "기본 메일 앱에서 문의를 작성합니다.": ["기본 메일 앱에서 문의를 작성합니다.", "既定のメールアプリでお問い合わせを作成します。", "Compose your inquiry in your default email app.", "Soạn yêu cầu trong ứng dụng email mặc định.", "在默认邮件应用中撰写咨询。"]});
 Object.assign(translations, {"메뉴": ["메뉴", "メニュー", "Menu", "Menu", "菜单"], "메뉴 열기": ["메뉴 열기", "メニューを開く", "Open menu", "Mở menu", "打开菜单"], "메뉴 닫기": ["메뉴 닫기", "メニューを閉じる", "Close menu", "Đóng menu", "关闭菜单"]});
+Object.assign(translations, {"KIM DOHYEON 로고": ["KIM DOHYEON 로고", "キム・ドヒョンのロゴ", "KIM DOHYEON logo", "Logo KIM DOHYEON", "KIM DOHYEON 标志"]});
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
@@ -717,8 +719,8 @@ while (walker.nextNode()) {
   textNodes.push({node, original: node.textContent, key: node.textContent.trim()});
 }
 const attributeNodes = [];
-document.querySelectorAll('[placeholder],[aria-label],[alt]').forEach(node => {
-  for (const attribute of ['placeholder','aria-label','alt']) {
+document.querySelectorAll('[placeholder],[aria-label],[alt],[title]').forEach(node => {
+  for (const attribute of ['placeholder','aria-label','alt','title']) {
     const key = node.getAttribute(attribute);
     if (translations[key]) attributeNodes.push({node,attribute,key});
   }

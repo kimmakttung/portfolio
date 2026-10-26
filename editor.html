@@ -5,24 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="마케팅과 기획 분야를 준비하는 대학생 김도현의 포트폴리오입니다.">
   <meta name="theme-color" content="#080707">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/brand-favicon-32.png?v=1">
+  <link rel="icon" href="favicon.ico?v=1" sizes="any">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
   <title>김도현 — 마케팅 · 기획</title>
-  <link rel="stylesheet" href="css/portfolio.css?v=connection-1">
-  <script src="js/editor-translations.js?v=1" defer></script>
+  <link rel="stylesheet" href="css/portfolio.css?v=brand-i18n-2">
+  <script src="js/editor-translations.js?v=brand-i18n-2" defer></script>
 
-  <link rel="stylesheet" href="css/connection.css?v=1">
-  <script src="js/experience.js?v=connection-1" defer></script>
-  <script src="js/i18n.js?v=mobile-1" defer></script>
-  <link rel="stylesheet" href="css/editor.css?v=1">
-  <script src="js/editor.js?v=mobile-1" defer></script>
-  <link rel="stylesheet" href="css/mobile.css?v=transition-1">
-  <script src="js/mobile.js?v=1" defer></script>
+  <link rel="stylesheet" href="css/connection.css?v=brand-i18n-2">
+  <script src="js/experience.js?v=brand-i18n-2" defer></script>
+  <script src="js/i18n.js?v=brand-i18n-2" defer></script>
+  <link rel="stylesheet" href="css/editor.css?v=brand-i18n-2">
+  <script src="js/editor.js?v=brand-i18n-2" defer></script>
+  <link rel="stylesheet" href="css/mobile.css?v=brand-i18n-2">
+  <script src="js/mobile.js?v=brand-i18n-2" defer></script>
+  <link rel="stylesheet" href="css/enhancements.css?v=brand-i18n-2">
 </head>
 <body class="inner-page" data-page-title="페이지 편집">
   <a class="skip" href="#main">본문으로 이동</a>
   <header class="header wrap">
-    <a class="brand" href="index.html" aria-label="김도현 홈">도현<span class="brand-dot">.</span></a>
+    <a class="brand" href="index.html" aria-label="김도현 홈"><img class="brand-logo" src="images/brand-logo.webp" alt="KIM DOHYEON 로고" width="64" height="60" decoding="async"></a>
     <button class="mobile-menu" type="button" aria-controls="site-navigation" aria-expanded="false"><i aria-hidden="true"></i><span>메뉴</span></button>
-    <nav id="site-navigation" aria-label="주 메뉴"><a href="index.html">홈</a><a href="about.html">자기소개</a><a href="interests.html">관심 분야</a><a href="projects.html">프로젝트</a><a href="contact.html">연락처</a><a href="editor.html" aria-current="page">페이지 편집</a></nav>
+    <nav id="site-navigation" aria-label="주 메뉴"><a href="index.html">홈</a><a href="about.html">자기소개</a><a href="interests.html">관심 분야</a><a href="projects.html">프로젝트</a><a href="contact.html">연락처</a></nav>
     <label class="language-picker"><span aria-hidden="true">◎</span><select id="site-language" aria-label="Language / 언어"><option value="ko">한국어</option><option value="ja">日本語</option><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="zh-CN">简体中文</option></select></label>
   </header>
   <main id="main" class="wrap editor-page">
@@ -33,6 +37,6 @@
     <div class="editor-layout"><aside class="editor-inspector"><h2>선택한 요소 수정</h2><p id="selection-help" class="muted">미리보기에서 문구나 이미지를 선택하세요.</p><form id="element-form"><fieldset id="element-fields" disabled><label for="element-text">문구</label><textarea id="element-text" rows="6"></textarea><div id="image-controls" hidden><label for="image-url">이미지 주소</label><input id="image-url" type="text"><label for="image-file">이미지 파일 선택</label><input id="image-file" type="file" accept="image/jpeg,image/png,image/webp"><label for="image-alt">이미지 설명</label><input id="image-alt" type="text"></div><div id="link-controls" hidden><label for="element-link">이동할 링크</label><input id="element-link" type="text"></div><label for="element-color">글자 색상 (선택)</label><input id="element-color" type="text" placeholder="#ead7c2"><label for="element-size">글자 크기 (px, 선택)</label><input id="element-size" type="number" min="8" max="400"><label for="element-align">문구 정렬</label><select id="element-align"><option value="">기존 설정 유지</option><option value="left">왼쪽</option><option value="center">가운데</option><option value="right">오른쪽</option></select><button class="button" type="submit">선택한 요소에 적용</button></fieldset></form></aside><section class="editor-preview-area" aria-labelledby="preview-title"><div class="editor-preview-heading"><h2 id="preview-title">미리보기</h2><p class="muted">편집 화면에서는 링크 이동과 스크립트 실행이 꺼져 있습니다.</p></div><iframe id="edit-preview" title="페이지 미리보기" aria-label="페이지 미리보기" sandbox="allow-same-origin"></iframe></section></div>
     <details class="editor-code"><summary>HTML 직접 편집</summary><label for="page-source">전체 HTML</label><textarea id="page-source" rows="24" spellcheck="false"></textarea><button id="apply-source" type="button">HTML을 미리보기에 적용</button><p class="muted">미리보기를 확인한 뒤 임시 저장하거나 다운로드하세요.</p></details>
   </main>
-  <footer class="wrap footer"><a class="brand" href="index.html">도현<span class="brand-dot">.</span></a><p>© 김도현. All rights reserved.</p><a href="#main">맨 위로 <span aria-hidden="true">↑</span></a></footer>
+  <footer class="wrap footer"><a class="brand" href="index.html" aria-label="김도현 홈"><img class="brand-logo" src="images/brand-logo.webp" alt="KIM DOHYEON 로고" width="64" height="60" decoding="async"></a><p>© 김도현. All rights reserved.</p><a href="#main">맨 위로 <span aria-hidden="true">↑</span></a></footer>
 </body>
 </html>
