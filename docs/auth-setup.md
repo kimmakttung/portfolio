@@ -24,6 +24,7 @@ Open https://supabase.com/dashboard/project/xxqwmkrzylugugsxcggu/auth/url-config
 - At https://console.cloud.google.com/ create or select a Google Cloud project.
 - Configure OAuth consent screen (External if intended for public visitors) and publish the app when ready.
 - Create a Web application OAuth client.
+- Authorized JavaScript origin: `https://kimmakttung.github.io` (without `/portfolio`).
 - Authorized redirect URI: `https://xxqwmkrzylugugsxcggu.supabase.co/auth/v1/callback`.
 - In Supabase Authentication > Providers > Google, enable provider and paste Google client ID and client secret there only.
 - Enable `allowGoogleLogin: true` in `js/supabase-config.js` **after** confirming the redirect flow.
@@ -33,7 +34,9 @@ Open https://supabase.com/dashboard/project/xxqwmkrzylugugsxcggu/auth/url-config
 - Keep email confirmation **enabled**.
 - Configure a trusted SMTP sender in Supabase Authentication > SMTP Settings. Complete sender/domain verification with the chosen provider.
 - Test delivering a verification email to an address not on the Supabase team; click the link and sign in.
-- Set `allowEmailSignup: true` only after confirming verification emails can be delivered.
+- Set `allowEmailSignup: true` and `allowPasswordReset: true` only after confirming verification and password-reset emails can be delivered.
+- Register the reset callback URL `https://kimmakttung.github.io/portfolio/password-reset.html` in the Supabase Redirect URL allowlist (the wildcard above already includes it).
+- Keep `mailer_autoconfirm` off, and enable CAPTCHA/rate limits before large-scale public signup.
 - Do not disable email confirmation simply to bypass the lack of a sender.
 
 ### 4. Admin usage
@@ -56,3 +59,10 @@ Open https://supabase.com/dashboard/project/xxqwmkrzylugugsxcggu/auth/url-config
 ## Backups
 The original `localStorage['dohyun-projects-v1']` data remains untouched.
 An admin can import local drafts by explicit click. Browser drafts are not automatically published.
+
+## Member account improvements
+- Top navigation shows a localized login or My Account link depending on the current session.
+- Members can change only their display name; the database column-level grant intentionally blocks role changes.
+- Logged-in members can change their password in My Account (Supabase may require recent sign-in or additional verification).
+- Forgot-password flow is implemented but hidden until allowPasswordReset is true and custom SMTP is configured.
+- Login and My Account support Korean, Japanese, English, Vietnamese, and Simplified Chinese display labels.
