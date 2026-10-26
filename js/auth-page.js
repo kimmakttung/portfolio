@@ -24,7 +24,7 @@ toggle.addEventListener('click', () => {
   message.textContent = '';
 });
 const redirect = new URLSearchParams(location.search).get('next');
-const safeNext = redirect && /^(?:index|projects|planner|admin|mypage)\.html(?:\?.*)?$/.test(redirect) ? redirect : 'index.html';
+const safeNext = redirect && /^(?:index|projects|planner|admin|mypage)\.html(?:\?.*)?$/.test(redirect) ? redirect : 'mypage.html';
 async function enter() {
   const { data: { user }, error } = await client.auth.getUser();
   if (error || !user) return;
