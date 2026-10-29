@@ -40,3 +40,29 @@
 .header .labo-brand{font:32px Georgia,serif;display:flex;align-items:center;flex-direction:column;justify-content:center;letter-spacing:-.02em;text-decoration:none;color:#f5e8d7}.header .labo-brand span{font:10px 'Apple SD Gothic Neo',sans-serif;margin-top:5px;letter-spacing:.12em;color:#d4aa78}
 .header #site-navigation{gap:clamp(10px,1.6vw,23px)}.header #site-navigation a{font-size:clamp(11px,1vw,13px)}
 @media(max-width:800px){.curator-grid{grid-template-columns:1fr}.experiment-layout{grid-template-columns:1fr}.curator-art{height:210px}.labo-sub-header nav{gap:13px}.labo-content{padding-top:42px}}
+
+/* FUTURE LAB visual language */
+:root{--labo-gold:#dba7b5;--labo-wine:#67243e}
+.labo-page{background:radial-gradient(ellipse at 85% 3%,#371523 0,#120d15 42%,#0b0b0f 90%);color:#f4e5e7}
+.labo-sub-header{background:#0d0b0fee;border-bottom-color:#794958}
+.labo-mark{color:#f6e8ea}.labo-mark small{color:#c897a7}.labo-sub-header nav a:hover{color:#eec6ce}
+.labo-hero h1 span{color:#d67a98}
+.curator-card,.labo-panel{background:#151018;border-color:#764451;box-shadow:0 16px 45px #0009}
+.curator-art:before{filter:saturate(.75) contrast(1.07)}
+.curator-art.art-culture:before{background:linear-gradient(135deg,#220d1a8e,#090a10b0),url('../images/conect-future-research.webp') center/cover}
+.curator-art.art-people:before{background:linear-gradient(135deg,#280e1a9e,#090a10ab),url('../images/conect-future-lounge.webp') center/cover}
+.curator-art.art-play:before{background:linear-gradient(135deg,#280e1a9e,#090a10ab),url('../images/conect-future-hub.webp') center/cover}
+.curator-art .art-symbol{color:#e2b4be9c;text-shadow:0 0 28px #c8597288}
+.curator-card .impact{border-color:#be6883;color:#f0cad1;background:#80334a28}
+.curator-card a,.labo-primary{background:#66223e;border-color:#ae627b}
+.curator-card a:hover,.labo-primary:hover{background:#8e3657}
+.labo-panel select{background:#231722;border-color:#84505f}
+.labo-sound-float{background:#391525;border-color:#a45b73}
+.gallery-page{background:#0b0a0e!important;color:#ebdce0!important}
+.gallery-page .header{background:#100c13;border-color:#794657;color:#f4e5e9}
+.gallery-page #site-navigation a:hover{color:#ecb5c5}
+.gallery-page .gallery-intro{color:#f5e7e9}
+.gallery-page .gallery-intro>p,.gallery-page .gallery-quick a{color:#e7b6c2}
+.gallery-page .gallery-architecture{background-image:url('../images/conect-future-hub.webp');background-position:center;background-size:cover}
+.gallery-page .gallery-vignette{background:linear-gradient(#0b0813ce,transparent 20%,transparent 67%,#0b0813e5),radial-gradient(ellipse,#0000 30%,#110810bd)}
+.gallery-page .gallery-storage-note{color:#dcc8ce}
