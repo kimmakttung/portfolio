@@ -719,6 +719,12 @@ if (typeof galleryTranslations !== 'undefined') Object.assign(translations, gall
 Object.assign(translations, {"문의하기": ["문의하기", "お問い合わせ", "Get in touch", "Gửi yêu cầu", "联系咨询"], "기본 메일 앱에서 문의를 작성합니다.": ["기본 메일 앱에서 문의를 작성합니다.", "既定のメールアプリでお問い合わせを作成します。", "Compose your inquiry in your default email app.", "Soạn yêu cầu trong ứng dụng email mặc định.", "在默认邮件应用中撰写咨询。"]});
 Object.assign(translations, {"메뉴": ["메뉴", "メニュー", "Menu", "Menu", "菜单"], "메뉴 열기": ["메뉴 열기", "メニューを開く", "Open menu", "Mở menu", "打开菜单"], "메뉴 닫기": ["메뉴 닫기", "メニューを閉じる", "Close menu", "Đóng menu", "关闭菜单"]});
 Object.assign(translations, {"KIM DOHYEON 로고": ["KIM DOHYEON 로고", "キム・ドヒョンのロゴ", "KIM DOHYEON logo", "Logo KIM DOHYEON", "KIM DOHYEON 标志"]});
+Object.assign(translations, {
+  "큐레이터 추천":["큐레이터 추천","おすすめ","Curator's Picks","Lựa chọn","精选"],
+  "공개 갤러리":["공개 갤러리","公開ギャラリー","Public Gallery","Triển lãm","公开展厅"],
+  "브랜드 실험실":["브랜드 실험실","ブランド実験室","Brand Lab","Phòng thí nghiệm","品牌实验室"],
+  "작업실":["작업실","作業室","Workroom","Phòng làm việc","工作室"]
+});
 const languageCodes = ['ko', 'ja', 'en', 'vi', 'zh-CN'];
 let currentLanguage = 'ko';
 function t(source) { return translations[source]?.[languageCodes.indexOf(currentLanguage)] ?? source; }
@@ -740,7 +746,7 @@ const languageSelect = document.getElementById('site-language');
 function setLanguage(language, announce = false) {
   currentLanguage = languageCodes.includes(language) ? language : 'ko';
   document.documentElement.lang = currentLanguage;
-  document.title = t(document.body.dataset.pageTitle) + ' | ' + t('김도현 — 마케팅 · 기획');
+  document.title = t(document.body.dataset.pageTitle) + ' | conect labo';
   document.querySelector('meta[name="description"]').content = t('마케팅과 기획 분야로 나아가는 저를 소개합니다.');
   textNodes.forEach(({node,original,key}) => { node.textContent = original.replace(key,t(key)); });
   attributeNodes.forEach(({node,attribute,key}) => node.setAttribute(attribute,t(key)));

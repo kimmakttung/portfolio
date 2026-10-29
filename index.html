@@ -1,62 +1,64 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="마케팅과 기획 분야를 준비하는 대학생 김도현의 포트폴리오입니다.">
-  <meta name="theme-color" content="#080707">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/brand-favicon-32.png?v=1">
-  <link rel="icon" href="favicon.ico?v=1" sizes="any">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png?v=1">
-  <title>김도현 — 마케팅 · 기획</title>
-  <link rel="stylesheet" href="css/portfolio.css?v=brand-i18n-2">
-  <link rel="stylesheet" href="css/connection.css?v=brand-i18n-2">
-  <script src="js/experience.js?v=scroll-depth-1" defer></script>
-  <script src="js/study-projects.js?v=1" defer></script>
-  <script src="js/project-store.js?v=study-projects-1" defer></script>
-  <script src="js/gallery-translations.js?v=study-projects-1" defer></script>
-  <script src="js/i18n.js?v=solid-navigation-1" defer></script>
-  <link rel="stylesheet" href="css/gallery.css?v=brand-i18n-2">
-  <script src="js/gallery.js?v=solid-navigation-1" defer></script>
-  <script type="module" src="js/public-gallery.js"></script>
-  <link rel="stylesheet" href="css/mobile.css?v=brand-i18n-2">
-  <script src="js/mobile.js?v=brand-i18n-2" defer></script>
-  <link rel="stylesheet" href="css/enhancements.css?v=solid-navigation-1">
-  <link rel="stylesheet" href="css/scroll-depth.css?v=1">
-  <script src="js/scroll-depth.js?v=1" defer></script>
-  <link rel="stylesheet" href="css/word-solid.css?v=solid-navigation-1">
-  <script src="js/word-solid.js?v=solid-navigation-1" defer></script>
-  <script src="js/supabase-config.js"></script>
-  <script type="module" src="js/account-nav.js"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10090c">
+<meta name="description" content="연결의 실험실 conect labo. 사람, 문화, 브랜드를 연결하는 기획을 연구하고 실험하는 공간입니다.">
+<meta property="og:type" content="website"><meta property="og:title" content="conect labo | 연결의 실험실">
+<meta property="og:description" content="책장, 연구 노트, 실험 기구를 눌러 기획의 세계를 탐험해 보세요.">
+<meta property="og:image" content="https://kimmakttung.github.io/portfolio/images/conect-labo-room.jpg">
+<meta property="og:url" content="https://kimmakttung.github.io/portfolio/">
+<title>conect labo — 연결의 실험실</title>
+<link rel="icon" type="image/png" href="images/brand-favicon-32.png">
+<link rel="preload" href="images/conect-labo-room.jpg" as="image">
+<link rel="stylesheet" href="css/conect-labo.css">
+<script src="js/supabase-config.js"></script>
+<script type="module" src="js/conect-home.js"></script>
 </head>
-<body class="home-page" data-page-title="홈">
-  <a class="skip" href="#main">본문으로 이동</a>
-  <header class="header wrap">
-    <a class="brand" href="index.html" aria-label="김도현 홈"><img class="brand-logo" src="images/brand-logo.webp" alt="KIM DOHYEON 로고" width="64" height="60" decoding="async"></a>
-    <button class="mobile-menu" type="button" aria-controls="site-navigation" aria-expanded="false"><i aria-hidden="true"></i><span>메뉴</span></button>
-    <nav id="site-navigation" aria-label="주 메뉴"><a href="index.html" aria-current="page">홈</a><a href="about.html">자기소개</a><a href="interests.html">관심 분야</a><a href="contact.html">연락처</a><a href="login.html">Account</a></nav>
-    <label class="language-picker"><span aria-hidden="true">◎</span><select id="site-language" aria-label="Language / 언어"><option value="ko">한국어</option><option value="ja">日本語</option><option value="en">English</option><option value="vi">Tiếng Việt</option><option value="zh-CN">简体中文</option></select></label>
-  </header>
-  <main id="main">
-    <section class="connection-hero" id="home" aria-labelledby="hero-title">
-      <div class="connection-space" aria-hidden="true">
-        <div class="space-grain"></div><div class="space-glow"></div>
-        <svg class="connection-lines" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" focusable="false">
-          <defs><linearGradient id="thread" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#ad344a" stop-opacity=".1"/><stop offset=".5" stop-color="#d6836c" stop-opacity=".7"/><stop offset="1" stop-color="#e5af91" stop-opacity=".25"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3"/></filter></defs>
-          <g fill="none" stroke="url(#thread)" stroke-width=".8"><path d="M-100 660 Q420 370 1370 70 Q1000 260 260 120 C-160 40 340 490 1260 580 C1600 650 1140 260 -80 310"/><path d="M-100 700 Q480 470 1370 70 Q1180 680 70 430 C-100 390 20 260 1370 70"/><path d="M-50 380 Q480 150 1370 70 Q900 320 80 780"/><path d="M0 730 Q650 400 1370 70 Q1490 470 1220 690"/><path class="travel-line" d="M-100 700 Q480 470 1370 70 Q1180 680 70 430"/><ellipse cx="730" cy="390" rx="610" ry="150" transform="rotate(14 730 390)"/></g>
-          <g fill="#efbaaa"><circle cx="260" cy="120" r="3"/><circle cx="1370" cy="70" r="3"/><circle cx="176" cy="448" r="3.5"/><circle cx="1220" cy="580" r="3.5"/><circle cx="1260" cy="280" r="2.5"/></g>
-          <g class="line-sparks" fill="#f6a89e" filter="url(#glow)"><circle cx="260" cy="120" r="6"/><circle cx="1370" cy="70" r="6"/><circle cx="176" cy="448" r="7"/><circle cx="1220" cy="580" r="7"/></g>
-        </svg>
-        <span class="space-label label-culture">문화</span><span class="space-label label-people">사람</span><span class="space-label label-brand">브랜드</span><span class="space-label label-experience">경험</span>
-      </div>
-      <p class="connection-eyebrow">KIM DOHYEON · CULTURE & BRAND</p>
-      <div class="connection-stage"><div class="connection-float"><h1 id="hero-title" class="connection-word"><button id="connection-spin" class="connection-word-button" type="button" aria-label="연결 회전하기" title="연결을 눌러 회전하기"><span class="connection-word-spin">연결</span></button></h1></div></div>
-      <div class="connection-caption"><p>서로 다른 생각을 연결해, 새로운 가능성을 만듭니다.</p><span>관찰 → 연결 → 실행</span></div>
-      <div class="connection-actions"><a class="button connection-cta" href="planner.html">기획서 작성 <span aria-hidden="true">↗</span></a><a class="connection-about" href="about.html">자세히 알아보기 <span aria-hidden="true">↗</span></a></div>
-      <div class="connection-bottom wrap"><span>01 / CONNECTION</span><a class="connection-bottom-center" href="#project-gallery">스크롤로 갤러리 입장 ↓</a><span class="connection-indicator" aria-hidden="true"><i></i><i></i></span></div>
-    </section>
-    <div class="home-transition" aria-hidden="true"><div class="transition-haze"></div><svg class="transition-threads" viewBox="0 0 1440 240" preserveAspectRatio="none" focusable="false"><defs><linearGradient id="bridge-thread"><stop stop-color="#b0475c" stop-opacity="0"/><stop offset=".5" stop-color="#d9a77b" stop-opacity=".6"/><stop offset="1" stop-color="#b0475c" stop-opacity="0"/></linearGradient></defs><path d="M-80 180C240 20 410 240 760 105S1180 40 1520 150"/><path d="M-80 105C250 230 500 10 850 130S1240 200 1520 75"/><path class="transition-trace" d="M-80 180C240 20 410 240 760 105S1180 40 1520 150"/></svg><span class="transition-spine"></span></div>
-    <section id="project-gallery" class="gallery-shell" aria-labelledby="gallery-title"><div class="gallery-stage"><div class="gallery-architecture" aria-hidden="true"></div><div class="gallery-vignette" aria-hidden="true"></div><header class="gallery-heading"><p>THE PROJECT GALLERY</p><h2 id="gallery-title">경험의 전당</h2><span>생각이 작품이 되는 공간.</span><i aria-hidden="true">✧</i></header><div id="gallery-frames" class="gallery-frames"></div><div id="gallery-empty" class="gallery-empty" hidden><span aria-hidden="true">◇</span><h3>첫 번째 작품을 기다립니다.</h3><p>기획서를 만들고 프로젝트에서 대표 이미지를 추가해 보세요.</p><a href="planner.html" class="button">새 기획서 작성</a></div><nav class="gallery-controls" aria-label="프로젝트"><button id="gallery-prev" type="button" aria-label="이전 액자">←</button><p id="gallery-counter" role="status" aria-live="polite">00 / 00</p><button id="gallery-next" type="button" aria-label="다음 액자">→</button><a href="projects.html">프로젝트 보기</a><a href="login.html?next=admin.html">관리자</a></nav><p class="gallery-instruction">스크롤하며 프로젝트를 만나보세요. 액자를 누르면 상세 내용을 볼 수 있습니다.</p></div></section><p class="gallery-storage-note wrap">고정한 프로젝트가 먼저, 나머지는 최근 저장 순으로 전시됩니다. 새 프로젝트와 수정 사항은 이 브라우저에만 저장됩니다.</p>
-  </main>
-</body>
-</html>
+<body>
+<a class="skip" href="#room">연구실로 바로가기</a>
+<div class="lab-app">
+<header class="lab-header">
+<a href="index.html" class="lab-logo" aria-label="conect labo 홈">conect labo<small>연결의 실험실</small></a>
+<nav class="lab-nav" aria-label="주 메뉴">
+<a href="index.html" aria-current="page" data-kr="홈" data-en="Home" data-ja="ホーム">홈</a>
+<a href="curator.html" data-kr="큐레이터 추천" data-en="Curator's Picks" data-ja="おすすめ">큐레이터 추천</a>
+<a href="gallery.html" data-kr="공개 갤러리" data-en="Gallery" data-ja="ギャラリー">공개 갤러리</a>
+<a href="brand-lab.html" data-kr="브랜드 실험실" data-en="Brand Lab" data-ja="ブランド実験室">브랜드 실험실</a>
+<a href="about.html" data-kr="자기소개" data-en="About" data-ja="自己紹介">자기소개</a>
+<a href="login.html?next=admin.html" data-kr="작업실" data-en="Workroom" data-ja="作業室">작업실</a>
+</nav>
+<div class="lab-tools">
+<label class="language-label" for="room-language"><span aria-hidden="true">◎</span><span class="sr-only">언어 선택</span>
+<select id="room-language" aria-label="언어 선택"><option value="ko">KR</option><option value="ja">JP</option><option value="en">EN</option><option value="vi">VI</option><option value="zh-CN">中文</option></select></label>
+<button type="button" id="sound-toggle" class="sound-toggle" aria-pressed="false" aria-label="연구실 사운드 켜기"><span aria-hidden="true">♫</span><span id="sound-text">사운드 켜기</span></button>
+<a class="lab-account" href="login.html" id="lab-account">로그인</a>
+</div></header>
+<main id="room" class="room-stage" aria-labelledby="room-heading">
+<div class="room-art" id="room-art" role="img" aria-label="야경이 보이는 창, 오래된 책장과 작업대, 연구 핀보드와 지구본이 있는 따뜻한 연구실"></div>
+<div class="room-shade" aria-hidden="true"></div>
+<div class="lab-intro">
+<p class="lab-eyebrow">CREATIVE RESEARCH ROOM · CONNECT LABO</p>
+<h1 id="room-heading">다른 생각이 만나<br><em>새로운 기획이 시작되는 곳.</em></h1>
+<p>책장과 핀보드, 실험 장치를 눌러<br>연구실의 이야기를 발견해 보세요.</p>
+</div>
+<button type="button" class="room-hotspot spot-about" data-room="about" aria-label="책장, 기획자 이야기"><span class="spot-orb"></span><span class="spot-name">기획자 이야기</span></button>
+<button type="button" class="room-hotspot spot-curator" data-room="curator" aria-label="오늘의 연구 노트, 큐레이터 추천"><span class="spot-orb"></span><span class="spot-name">큐레이터 추천</span></button>
+<button type="button" class="room-hotspot spot-gallery" data-room="gallery" aria-label="핀보드, 공개 갤러리"><span class="spot-orb"></span><span class="spot-name">공개 갤러리</span></button>
+<button type="button" class="room-hotspot spot-workroom" data-room="workroom" aria-label="서랍, 비공개 작업실"><span class="spot-orb"></span><span class="spot-name">비공개 작업실 <span aria-hidden="true">⌑</span></span></button>
+<button type="button" class="room-hotspot spot-brand" data-room="brand" aria-label="실험 기구, 브랜드 실험실"><span class="spot-orb"></span><span class="spot-name">브랜드 실험실</span></button>
+<button type="button" class="room-hotspot spot-contact" data-room="contact" aria-label="편지, 연락처"><span class="spot-orb"></span><span class="spot-name">연락하기</span></button>
+<div class="lab-instruction" id="lab-instruction"><span>CONNECTION / 001</span><p>연구실 속 빛나는 사물을 선택해 보세요.</p><span class="small-arrow">⌄</span></div>
+<section class="room-dialogue" id="room-dialogue" aria-labelledby="dialogue-title" aria-hidden="true" hidden>
+<div class="dialogue-heading"><span id="dialogue-tag">RESEARCH FILE</span><button type="button" id="dialogue-close" aria-label="장면 닫기">✕</button></div>
+<h2 id="dialogue-title"></h2>
+<p id="dialogue-description"></p>
+<p class="dialogue-quote" id="dialogue-quote"></p>
+<div class="dialogue-actions"><button type="button" id="dialogue-back">← 연구실로 돌아가기</button><a href="#" id="dialogue-go">공간으로 들어가기 <span>↗</span></a></div>
+</section>
+<div class="room-transition" id="room-transition" aria-hidden="true"><div class="transition-ring"></div><p>CONNECTION IN PROGRESS</p></div>
+</main>
+<footer class="lab-footer"><span>© conect labo. KIM DOHYEON</span><p>IDEAS · PEOPLE · CULTURE · BRANDS</p>
+<a href="contact.html">새로운 연결 제안하기 ↗</a></footer>
+</div>
+</body></html>
