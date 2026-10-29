@@ -1,83 +1,75 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0c0b0a">
-<meta name="description" content="연결의 실험실 conect labo — 블랙과 버건디로 빛나는 크리에이티브 리서치 공간. 사물을 눌러 기획의 세계를 탐험해 보세요.">
-<meta property="og:type" content="website"><meta property="og:title" content="conect labo | 연결의 실험실">
-<meta property="og:description" content="다른 생각과 문화를 연결하는 미래형 크리에이티브 연구소.">
-<meta property="og:image" content="https://kimmakttung.github.io/portfolio/images/conect-future-hub.webp">
+<meta name="description" content="conect labo — 장면 속 사물을 선택하고 이야기를 발견하는 연결의 실험실.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="conect labo | 연결의 실험실">
+<meta property="og:description" content="연구실을 둘러보며 사람, 문화, 기획의 기록을 발견해 보세요.">
+<meta property="og:image" content="https://kimmakttung.github.io/portfolio/images/conect-event-room.webp">
 <meta property="og:url" content="https://kimmakttung.github.io/portfolio/">
 <title>conect labo — 연결의 실험실</title>
 <link rel="icon" type="image/png" href="images/brand-favicon-32.png">
-<link rel="preload" href="images/conect-future-hub.webp" as="image" type="image/webp">
-<link rel="stylesheet" href="css/conect-labo.css?v=warm-room-1">
+<link rel="preload" href="images/conect-event-room.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="stylesheet" href="css/event-client.css?v=event-client-1">
 <script src="js/supabase-config.js"></script>
-<script type="module" src="js/conect-home.js?v=future-1"></script>
-<link rel="stylesheet" href="css/labo-atmosphere.css?v=warm-room-1">
-<link rel="stylesheet" href="css/labo-home.css?v=warm-room-1">
+<script type="module" src="js/event-client.js?v=event-client-1"></script>
 </head>
-<body class="labo-home">
-<a class="skip" href="#room">연구실로 바로가기</a>
-<div class="lab-app">
-<header class="lab-header">
-<a href="index.html" class="lab-logo" aria-label="conect labo 홈">conect labo<small>연결의 실험실</small></a>
-<nav class="lab-nav" aria-label="주 메뉴">
-<a href="index.html" aria-current="page" data-kr="연구실" data-en="Research" data-ja="研究室">연구실</a>
-<a href="curator.html" data-kr="큐레이터 추천" data-en="Curation" data-ja="おすすめ">큐레이터 추천</a>
-<a href="gallery.html" data-kr="공개 갤러리" data-en="Gallery" data-ja="ギャラリー">공개 갤러리</a>
-<a href="brand-lab.html" data-kr="브랜드 실험실" data-en="Lab" data-ja="ブランド実験室">브랜드 실험실</a>
-<a href="about.html" data-kr="자기소개" data-en="About" data-ja="自己紹介">자기소개</a>
-<a href="login.html?next=admin.html" data-kr="작업실" data-en="Workroom" data-ja="作業室">작업실</a>
-</nav>
-<div class="lab-tools">
-<label class="language-label" for="room-language"><span aria-hidden="true">◎</span><span class="sr-only">언어 선택</span>
-<select id="room-language" aria-label="언어 선택"><option value="ko">KR</option><option value="ja">JP</option><option value="en">EN</option><option value="vi">VI</option><option value="zh-CN">中文</option></select></label>
-<button type="button" id="sound-toggle" class="sound-toggle" aria-pressed="false" aria-label="연구실 사운드 켜기"><span aria-hidden="true">♫</span><span id="sound-text">사운드 켜기</span></button>
-<a class="lab-account" href="login.html" id="lab-account">로그인</a>
+<body class="event-client">
+<a class="skip" href="#client-camera-controls">장소 선택으로 바로가기</a>
+<main id="room" class="client-stage" aria-labelledby="room-heading">
+<h1 id="room-heading" class="sr-only">conect labo · 연결의 실험실</h1>
+<div class="scene-atmosphere" aria-hidden="true"></div>
+<div id="room-world" class="room-world">
+  <img id="room-art" class="room-art" src="images/conect-event-room.webp" alt="중앙의 원형 테이블, 매달린 지구본과 사진들, 왼쪽 서재와 오른쪽 전시 스크린이 있는 검은 연구실" width="1550" height="419" fetchpriority="high" decoding="async" draggable="false">
+  <button class="room-hotspot" data-room="about" style="--x:21%;--y:46%" type="button" aria-label="기획자 이야기"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">기획자 이야기</span></button>
+  <button class="room-hotspot" data-room="curator" style="--x:49%;--y:69%" type="button" aria-label="큐레이터 추천"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">큐레이터 추천</span></button>
+  <button class="room-hotspot" data-room="gallery" style="--x:87%;--y:44%" type="button" aria-label="공개 갤러리"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">공개 갤러리</span></button>
+  <button class="room-hotspot" data-room="workroom" style="--x:72%;--y:61%" type="button" aria-label="비공개 작업실"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">비공개 작업실</span></button>
+  <button class="room-hotspot" data-room="brand" style="--x:59%;--y:35%" type="button" aria-label="브랜드 실험실"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">브랜드 실험실</span></button>
+  <button class="room-hotspot" data-room="contact" style="--x:94%;--y:74%" type="button" aria-label="연락하기"><span class="marker" aria-hidden="true">◇</span><span class="spot-name">연락하기</span></button>
 </div>
+<div class="scene-vignette" aria-hidden="true"></div>
+</main>
+<header id="client-hud" class="client-hud">
+  <a class="client-logo" href="index.html">conect labo<small>연결의 실험실</small></a>
+  <button id="menu-toggle" class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="client-menu" aria-label="공간 메뉴"><span aria-hidden="true">☰</span></button>
+  <nav id="client-menu" class="client-menu" aria-label="연구실 공간">
+    <a href="about.html" data-scene="about">기획자 이야기</a><a href="curator.html" data-scene="curator">큐레이터 추천</a><a href="gallery.html" data-scene="gallery">공개 갤러리</a><a href="brand-lab.html" data-scene="brand">브랜드 실험실</a><a href="login.html?next=admin.html" data-scene="workroom">작업실</a><a href="contact.html" data-scene="contact">연락처</a>
+  </nav>
+  <div class="client-tools">
+    <label class="language-label"><span aria-hidden="true">◎</span><select id="room-language" aria-label="언어 선택"><option value="ko">KR</option><option value="ja">JP</option><option value="en">EN</option><option value="vi">VI</option><option value="zh-CN">中文</option></select></label>
+    <button id="sound-toggle" class="icon-button sound-toggle" type="button" aria-pressed="false" aria-label="사운드 켜기"><span aria-hidden="true">♫</span><span id="sound-text" class="sr-only">사운드 켜기</span></button>
+    <a id="lab-account" class="account-link" href="login.html">로그인</a>
+  </div>
 </header>
-<main id="room" class="room-stage" aria-labelledby="room-heading">
-<section class="lab-opening" aria-labelledby="room-heading">
-  <div class="lab-intro">
-    <p class="lab-eyebrow">CREATIVE RESEARCH SPACE / 001</p>
-    <h1 id="room-heading">다른 생각이 만나<br><em>새로운 기획이 시작되는 곳.</em></h1>
-    <p>연구소의 빛나는 사물을 클릭해<br>그 안의 이야기를 발견해 보세요.</p>
+<nav id="client-camera-controls" class="camera-controls" aria-label="탐색할 공간">
+  <span class="hud-label" aria-hidden="true">LOCATION / 01</span>
+  <button type="button" data-view="overview" aria-pressed="true"><i aria-hidden="true">◈</i><span>전체 장면</span></button>
+  <button type="button" data-view="archive" aria-pressed="false"><i aria-hidden="true">01</i><span>서재</span></button>
+  <button type="button" data-view="hub" aria-pressed="false"><i aria-hidden="true">02</i><span>중앙</span></button>
+  <button type="button" data-view="exhibit" aria-pressed="false"><i aria-hidden="true">03</i><span>전시실</span></button>
+</nav>
+<button id="client-minimap" class="client-minimap" type="button" aria-label="전체 장면 지도. 원하는 곳을 눌러 시점을 이동하세요.">
+  <img src="images/conect-event-room.webp" alt="" width="1550" height="419" draggable="false"><span id="camera-window" aria-hidden="true"></span><span class="map-caption" aria-hidden="true">ROOM MAP</span>
+</button>
+<p id="camera-hint" class="camera-hint">드래그하여 둘러보기</p>
+<section id="room-dialogue" class="room-dialogue" role="region" aria-labelledby="dialogue-title" aria-describedby="dialogue-description" data-typing="false">
+  <div class="dialogue-nameplate"><span class="nameplate-light" aria-hidden="true"></span><span id="dialogue-tag">CONECT LABO</span></div>
+  <img class="guide-portrait" src="images/profile-transparent.webp" alt="" width="1084" height="1451" decoding="async">
+  <div class="dialogue-body">
+    <button id="dialogue-close" class="dialogue-close icon-button" type="button" aria-label="대화 닫기">×</button>
+    <h2 id="dialogue-title">연구실에 오신 것을 환영합니다.</h2>
+    <p id="dialogue-description"><span id="dialogue-full"></span><span id="dialogue-typed" aria-hidden="true"></span></p>
+    <p id="dialogue-quote" class="dialogue-quote" hidden></p>
+    <div class="dialogue-actions"><button id="dialogue-back" type="button">안내 접기</button><button id="dialogue-skip" type="button" hidden>대화 즉시 표시</button><a id="dialogue-go" href="gallery.html">전시실 둘러보기 <span aria-hidden="true">↗</span></a></div>
   </div>
 </section>
-<section class="scene-pane scene-hub" aria-label="중앙 원형 연구 테이블과 전시 공간">
-  <div class="scene-image" id="room-art" role="img" aria-label="검은 원형 연구 테이블, 커다란 우주형 영상 벽, 붉은 조명과 매달린 작품들이 있는 미래형 연구소"></div>
-  <div class="scene-shade" aria-hidden="true"></div>
-
-  <button type="button" class="room-hotspot spot-about" data-room="about" aria-label="왼쪽 아카이브, 기획자 이야기"><span class="spot-orb"></span><span class="spot-name">기획자 이야기</span></button>
-  <button type="button" class="room-hotspot spot-curator" data-room="curator" aria-label="중앙 원형 테이블, 큐레이터 추천"><span class="spot-orb"></span><span class="spot-name">큐레이터 추천</span></button>
-  <button type="button" class="room-hotspot spot-gallery" data-room="gallery" aria-label="오른쪽 전시 스크린, 공개 갤러리"><span class="spot-orb"></span><span class="spot-name">공개 갤러리</span></button>
-  <div class="scene-counter"><span>01 / MAIN HUB</span><a href="#inner-rooms">EXPLORE SPACES <span aria-hidden="true">↓</span></a></div>
-</section>
-<div id="inner-rooms" class="room-chapters" aria-label="연구소 내부 공간">
-<section class="scene-pane scene-research" aria-label="핀보드와 프로토타입으로 가득한 리서치 공간">
-  <div class="scene-image" role="img" aria-label="검은 연구 테이블, 벽면 가득한 리서치 사진과 도면, 붉은 네온으로 밝혀진 아카이브"></div>
-  <div class="scene-shade" aria-hidden="true"></div>
-  <div class="scene-chapter-title"><span>02 / RESEARCH ARCHIVE</span><h2>리서치 아카이브</h2><p>가설과 시도가 쌓이는 공간</p></div>
-  <button type="button" class="room-hotspot spot-brand" data-room="brand" aria-label="리서치 보드, 브랜드 실험실"><span class="spot-orb"></span><span class="spot-name">브랜드 실험실</span></button>
-  <button type="button" class="room-hotspot spot-workroom" data-room="workroom" aria-label="연구 노트, 비공개 작업실"><span class="spot-orb"></span><span class="spot-name">비공개 작업실</span></button>
-</section>
-<section class="scene-pane scene-lounge" aria-label="야경이 보이는 미래형 연구소 라운지">
-  <div class="scene-image" role="img" aria-label="도시 야경이 보이는 창과 안락한 소파, 책장과 원형 실험 기구가 있는 조용한 라운지"></div>
-  <div class="scene-shade" aria-hidden="true"></div>
-  <div class="scene-chapter-title"><span>03 / CONNECTION LOUNGE</span><h2>커넥션 라운지</h2><p>다음 연결이 시작되는 공간</p></div>
-  <button type="button" class="room-hotspot spot-contact" data-room="contact" aria-label="라운지 소파, 연락처"><span class="spot-orb"></span><span class="spot-name">연락하기</span></button>
-</section>
-</div>
-<div class="lab-instruction" id="lab-instruction"><span>INTERACTIVE RESEARCH LAB</span><p>빛나는 오브젝트를 클릭해 공간을 탐험하세요.</p></div>
-<section class="room-dialogue" id="room-dialogue" role="dialog" aria-modal="true" aria-labelledby="dialogue-title" aria-hidden="true" hidden>
-<div class="dialogue-heading"><span id="dialogue-tag">RESEARCH FILE</span><button type="button" id="dialogue-close" aria-label="장면 닫기">✕</button></div>
-<h2 id="dialogue-title"></h2><p id="dialogue-description"></p>
-<p class="dialogue-quote" id="dialogue-quote"></p>
-<div class="dialogue-actions"><button type="button" id="dialogue-back">← 연구실로 돌아가기</button><a href="#" id="dialogue-go">공간으로 들어가기 <span aria-hidden="true">↗</span></a></div>
-</section>
-<div class="room-transition" id="room-transition" aria-hidden="true"><div class="transition-ring"></div><p>CONNECTING THE NEXT IDEA</p></div>
-</main>
-<footer class="lab-footer"><span>© 2026 conect labo · KIM DOHYEON</span><p>GOOD IDEAS CONNECT PEOPLE.</p><a href="contact.html">새로운 연결 제안하기 ↗</a></footer>
-</div>
-</body></html>
+<button id="dialogue-reopen" class="dialogue-reopen" type="button" hidden>연구실 안내 <span aria-hidden="true">◇</span></button>
+<div id="room-transition" class="room-transition" aria-hidden="true"><span class="transition-seal">C</span><p id="transition-text">공간으로 이동 중</p></div>
+<p id="client-announcement" class="sr-only" role="status" aria-live="polite"></p>
+<noscript><nav class="noscript-nav"><a href="about.html">자기소개</a><a href="gallery.html">공개 갤러리</a><a href="curator.html">큐레이터 추천</a><a href="brand-lab.html">브랜드 실험실</a><a href="contact.html">연락처</a></nav></noscript>
+</body>
+</html>

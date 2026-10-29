@@ -100,7 +100,14 @@ export function installLaboAudio(button, hotspots = []) {
     if (document.hidden) context.suspend().catch(() => {});
     else context.resume().catch(() => {});
   });
-  window.addEventListener('pagehide', () => { if (context) context.close().catch(() => {}); });
+  window.addEventListener('pagehide', () => {
+    const previous = context;
+    context = null;
+    master = null;
+    active = false;
+    draw();
+    if (previous) previous.close().catch(() => {});
+  });
   draw();
   return {
     click: () => chime(523, 0.1, 0.3),
