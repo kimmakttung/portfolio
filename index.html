@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0c0b0e">
+<meta name="theme-color" content="#0c0b0a">
 <meta name="description" content="연결의 실험실 conect labo — 블랙과 버건디로 빛나는 크리에이티브 리서치 공간. 사물을 눌러 기획의 세계를 탐험해 보세요.">
 <meta property="og:type" content="website"><meta property="og:title" content="conect labo | 연결의 실험실">
 <meta property="og:description" content="다른 생각과 문화를 연결하는 미래형 크리에이티브 연구소.">
@@ -11,11 +11,13 @@
 <title>conect labo — 연결의 실험실</title>
 <link rel="icon" type="image/png" href="images/brand-favicon-32.png">
 <link rel="preload" href="images/conect-future-hub.webp" as="image" type="image/webp">
-<link rel="stylesheet" href="css/conect-labo.css?v=future-1">
+<link rel="stylesheet" href="css/conect-labo.css?v=warm-room-1">
 <script src="js/supabase-config.js"></script>
 <script type="module" src="js/conect-home.js?v=future-1"></script>
+<link rel="stylesheet" href="css/labo-atmosphere.css?v=warm-room-1">
+<link rel="stylesheet" href="css/labo-home.css?v=warm-room-1">
 </head>
-<body>
+<body class="labo-home">
 <a class="skip" href="#room">연구실로 바로가기</a>
 <div class="lab-app">
 <header class="lab-header">
@@ -36,14 +38,17 @@
 </div>
 </header>
 <main id="room" class="room-stage" aria-labelledby="room-heading">
-<section class="scene-pane scene-hub" aria-label="중앙 원형 연구 테이블과 전시 공간">
-  <div class="scene-image" id="room-art" role="img" aria-label="검은 원형 연구 테이블, 커다란 우주형 영상 벽, 붉은 조명과 매달린 작품들이 있는 미래형 연구소"></div>
-  <div class="scene-shade" aria-hidden="true"></div>
+<section class="lab-opening" aria-labelledby="room-heading">
   <div class="lab-intro">
     <p class="lab-eyebrow">CREATIVE RESEARCH SPACE / 001</p>
     <h1 id="room-heading">다른 생각이 만나<br><em>새로운 기획이 시작되는 곳.</em></h1>
     <p>연구소의 빛나는 사물을 클릭해<br>그 안의 이야기를 발견해 보세요.</p>
   </div>
+</section>
+<section class="scene-pane scene-hub" aria-label="중앙 원형 연구 테이블과 전시 공간">
+  <div class="scene-image" id="room-art" role="img" aria-label="검은 원형 연구 테이블, 커다란 우주형 영상 벽, 붉은 조명과 매달린 작품들이 있는 미래형 연구소"></div>
+  <div class="scene-shade" aria-hidden="true"></div>
+
   <button type="button" class="room-hotspot spot-about" data-room="about" aria-label="왼쪽 아카이브, 기획자 이야기"><span class="spot-orb"></span><span class="spot-name">기획자 이야기</span></button>
   <button type="button" class="room-hotspot spot-curator" data-room="curator" aria-label="중앙 원형 테이블, 큐레이터 추천"><span class="spot-orb"></span><span class="spot-name">큐레이터 추천</span></button>
   <button type="button" class="room-hotspot spot-gallery" data-room="gallery" aria-label="오른쪽 전시 스크린, 공개 갤러리"><span class="spot-orb"></span><span class="spot-name">공개 갤러리</span></button>

@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+/* The reference panorama is the room itself, with the introduction outside it. */
+body.labo-home {
+  --surface: #0c0b0a;
+  --wine: #622b35;
+  --glow: #b3846e;
+  --gold: #c6a786;
+  --text: #eee2d3;
+  --muted: #b4a596;
+  background: #0c0b0a;
+  color: var(--text);
+}
+
+.labo-home .lab-header {
+  padding: 20px clamp(18px,3.2vw,64px);
+  background: #0d0c0bf5;
+  border-bottom: 1px solid #af8c6738;
+  box-shadow: none;
+  gap: 24px;
+}
+.labo-home .lab-logo {font-size: clamp(28px,2.8vw,38px);color: #eee2d3;letter-spacing: -.04em}
+.labo-home .lab-logo small {font-size: 9px;color: #b79a7d;letter-spacing: .19em}
+.labo-home .lab-nav {gap: clamp(14px,1.7vw,28px)}
+.labo-home .lab-nav a {color: #bfb1a3;font-size: 12px;min-height: 36px;display: flex;align-items: center}
+.labo-home .lab-nav a:hover,.labo-home .lab-nav a[aria-current] {color: #f0dfc9}
+.labo-home .lab-nav a[aria-current]::after {bottom: 0;background: #bb9772;box-shadow: none}
+.labo-home .language-label {border-color: #755b484d;border-radius: 2px;color: #c6ae96}
+.labo-home #room-language {background: #15110f;color: #e8d9c7}
+.labo-home .sound-toggle {background: #191310;border-color: #80634c7a;border-radius: 2px;color: #d6c0a9}
+.labo-home .sound-toggle[aria-pressed=true] {background: #512831;border-color: #c29776}
+.labo-home .sound-toggle:hover {box-shadow: 0 0 18px #b18b6620}
+.labo-home .lab-account {color: #d1b494}
+.labo-home a:focus-visible,.labo-home button:focus-visible,.labo-home select:focus-visible {outline-color: #e5c49d}
+
+.labo-home .room-stage {padding: 0 clamp(16px,3.2vw,64px);background: #0c0b0a}
+.lab-opening {padding: clamp(34px,4vw,64px) 0 34px}
+.lab-opening .lab-intro {
+  position: relative;
+  inset: auto;
+  display: grid;
+  grid-template-columns: minmax(0,1.6fr) minmax(220px,1fr);
+  gap: 12px 60px;
+  max-width: none;
+  text-shadow: none;
+  pointer-events: auto;
+}
+.lab-opening .lab-eyebrow {grid-column: 1/-1;font: 10px/1.8 Georgia,serif;letter-spacing: .24em;color: #b99575;margin: 0}
+.lab-opening .lab-intro h1 {margin: 0;font: 400 clamp(30px,3.2vw,49px)/1.42 Georgia,'Batang',serif;color: #eee2d3;letter-spacing: -.045em}
+.lab-opening .lab-intro h1 em {color: #cdb49a}
+.lab-opening .lab-intro>p:last-child {font-size: 13px;line-height: 1.9;color: #aa9b8e;align-self: end;margin: 0 0 6px;padding-left: 24px;border-left: 1px solid #80634b66;max-width: 360px}
+
+.labo-home .scene-pane {background: #15110f;border: 1px solid #aa876140;border-radius: 2px}
+.labo-home .scene-hub {aspect-ratio: 1550/419;min-height: 0;max-height: none}
+.labo-home .scene-hub .scene-image {background-image: url('../images/conect-future-hub.webp');background-position: center;background-size: cover;filter: none;transform: scale(1)}
+.labo-home .scene-hub.is-zooming .scene-image {transform: scale(1.6);filter: brightness(.42)}
+.labo-home .scene-hub .scene-shade {background: linear-gradient(0deg,#0a08064d,transparent 23%);opacity: 1}
+.labo-home .room-hotspot {color: #f1e2cf;min-height: 48px}
+.labo-home .room-hotspot:hover:before,.labo-home .room-hotspot:focus-visible:before {background: #1c1410c9;border-color: #bd997286}
+.labo-home .spot-orb {width: 12px;height: 12px;border-color: #dfc2a0;background: #a67958;box-shadow: 0 0 0 6px #a67c4933,0 0 18px #d3ab7070}
+.labo-home .spot-orb:after {background: #fff0d7;inset: 2px}
+.labo-home .room-hotspot:hover .spot-orb,.labo-home .room-hotspot:focus-visible .spot-orb {animation: none;box-shadow: 0 0 0 8px #a67c4940,0 0 25px #d3ab7080}
+.labo-home .spot-name {background: #16110ee8;border: 1px solid #a88865a1;border-radius: 2px;box-shadow: 0 5px 20px #0008;color: #e7d3b9;letter-spacing: .02em}
+.labo-home .scene-counter {font-size: 9px;letter-spacing: .16em;color: #d8c2a8;bottom: 5%}
+.labo-home .scene-counter a {border-color: #a3856270;min-height: 36px;display: inline-flex;align-items: center;gap: 8px}
+.labo-home .scene-counter a:hover {color: #fff1dc}
+.labo-home .room-chapters {gap: 24px;background: transparent;margin-top: 24px}
+.labo-home .room-chapters .scene-pane {aspect-ratio: 2.3;min-height: 240px}
+.labo-home .room-chapters .scene-shade {background: linear-gradient(0deg,#0b0908db,transparent 75%),linear-gradient(90deg,#130e0b33,transparent 65%)}
+.labo-home .scene-chapter-title {left: 24px;bottom: 22px;text-shadow: 0 2px 15px #000}
+.labo-home .scene-chapter-title>span {color: #c6a582;font: 9px/1.8 Georgia,serif;letter-spacing: .17em}
+.labo-home .scene-chapter-title h2 {color: #ead9c3;font-size: clamp(23px,2.6vw,35px);font-weight: 400;margin: 8px 0}
+.labo-home .scene-chapter-title p {color: #bbac9b;font-size: 12px;line-height: 1.8}
+.labo-home .lab-instruction {margin: 26px 0 0;padding: 20px 0;gap: 12px 24px;color: #b6a591;border-color: #95745342;background: transparent}
+.labo-home .lab-instruction>span {color: #b39270;font-size: 9px;letter-spacing: .2em}
+.labo-home .lab-instruction p {font-size: 12px;line-height: 1.8;color: #aa9b8c}
+.labo-home .lab-footer {background: #0c0b0a;border-color: #95745342;padding: 22px clamp(16px,3.2vw,64px);color: #aa9784;font-size: 10px;line-height: 1.8}
+.labo-home .lab-footer p {color: #9b8065;letter-spacing: .17em}
+.labo-home .lab-footer a:hover {color: #f0d9b9}
+
+.labo-home .room-dialogue {background: linear-gradient(130deg,#211913fa,#0e0c0afa);border: 1px solid #ad8a63;border-radius: 3px;box-shadow: 0 24px 100px #000c}
+.labo-home .dialogue-heading {color: #c3a17e;font-size: 9px}
+.labo-home #dialogue-close {color: #decaaf;min-width: 44px;min-height: 44px}
+.labo-home .room-dialogue h2 {color: #efe0ca;font-weight: 400}
+.labo-home .room-dialogue p {color: #bcad9c;line-height: 1.9}
+.labo-home .dialogue-quote {border-color: #ae8762;background: #b88b6010}
+.labo-home .dialogue-actions button,.labo-home .dialogue-actions a {background: #522630;color: #f1dfc7;border-color: #b08b66;border-radius: 2px;min-height: 48px}
+.labo-home .dialogue-actions button {background: transparent}
+.labo-home .dialogue-actions a:hover {background: #703442}
+.labo-home .room-transition {background: #0c0b0a}
+.labo-home .transition-ring {border-color: #6c503c;border-top-color: #d9b58c}
+.labo-home .room-transition p {color: #d7b38c}
+
+@keyframes glow {50% {box-shadow: 0 0 0 8px #a67c4926,0 0 22px #d3ab7066}}
+
+@media (max-width:1150px) {
+  .labo-home .lab-header {padding-block: 18px;gap: 16px}
+  .labo-home .lab-nav {gap: 24px;padding: 0}
+  .labo-home .lab-nav a {min-height: 44px;font-size: 12px}
+  .lab-opening .lab-intro {gap: 12px 32px}
+  .labo-home .room-chapters {gap: 16px;margin-top: 16px}
+}
+
+@media (max-width:720px) {
+  .labo-home .lab-header {padding: 17px 16px 9px;gap: 12px}
+  .labo-home .lab-logo {font-size: 26px}
+  .labo-home .lab-logo small {font-size: 8px;letter-spacing: .14em;margin-top: 9px}
+  .labo-home .lab-tools {gap: 7px}
+  .labo-home .language-label {padding: 6px 3px;min-height: 36px}
+  .labo-home .sound-toggle {min-width: 36px;min-height: 36px;padding: 8px}
+  .labo-home .lab-account {font-size: 11px;line-height: 1.4;white-space: normal;text-align: center;max-width: 60px}
+  .labo-home .lab-nav {gap: 20px}
+  .labo-home .room-stage {padding-inline: 16px}
+  .lab-opening {padding: 30px 0 25px}
+  .lab-opening .lab-intro {grid-template-columns: 1fr;gap: 14px}
+  .lab-opening .lab-intro h1 {font-size: clamp(27px,6.8vw,36px);line-height: 1.5}
+  .lab-opening .lab-intro>p:last-child {padding: 0;border: 0;font-size: 13px;margin: 0;max-width: 100%}
+  /* Keep the full panorama on phones; the destinations become touch rows. */
+  .labo-home .scene-hub {display: grid;grid-template-columns: 1fr;gap: 0;aspect-ratio: auto;min-height: 0;padding: calc((100vw - 32px) * .2703226 + 16px) 12px 50px}
+  .labo-home .scene-hub .scene-image {inset: 0 0 auto;height: auto;aspect-ratio: 1550/419;background-size: cover;filter: none}
+  .labo-home .scene-hub .scene-shade {inset: 0 0 auto;height: auto;aspect-ratio: 1550/419;background: linear-gradient(0deg,#0d0b0a55,transparent 35%)}
+  .labo-home .scene-hub .room-hotspot {position: relative;inset: auto;transform: none;justify-content: flex-start;width: 100%;min-height: 48px;padding: 7px 13px;border-top: 1px solid #95745330;gap: 14px}
+  .labo-home .scene-hub .room-hotspot:before {inset: 0;border-radius: 2px}
+  .labo-home .scene-hub .spot-name {visibility: visible;opacity: 1;transform: none;padding: 0;background: none;border: 0;box-shadow: none;font-size: 13px;color: #dcc6aa}
+  .labo-home .scene-hub .spot-orb {width: 10px;height: 10px;box-shadow: 0 0 0 4px #a67c4926,0 0 15px #d3ab7050}
+  .labo-home .scene-counter {left: 16px;right: 16px;bottom: 7px;font-size: 8px;letter-spacing: .1em}
+  .labo-home .room-chapters {grid-template-columns: 1fr;gap: 16px;margin-top: 16px}
+  .labo-home .room-chapters .scene-pane {aspect-ratio: 1.6;min-height: 220px}
+  .labo-home .scene-chapter-title {left: 18px;bottom: 16px}
+  .labo-home .scene-chapter-title h2 {font-size: 27px}
+  .labo-home .room-chapters .spot-name {font-size: 11px;padding: 7px 9px}
+  .labo-home .lab-instruction {display: block;padding: 18px 0;margin-top: 18px}
+  .labo-home .lab-instruction p {margin-bottom: 0}
+  .labo-home .lab-footer {display: block;padding: 20px 16px}
+  .labo-home .lab-footer p {margin: 8px 0}
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .labo-home .scene-image,.labo-home .spot-orb {animation: none;transition: none}
+}
