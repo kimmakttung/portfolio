@@ -10,6 +10,3 @@ if(!button){
   document.body.append(button);
 }
 const sound=installLaboAudio(button);
-for(const link of document.querySelectorAll('a[href]')){
-  link.addEventListener('pointerenter',()=>{if(sound.active)sound.click();},{passive:true});
-}
