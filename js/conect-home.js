@@ -1,6 +1,8 @@
 import {installLaboAudio} from './conect-audio.js';
 const stage = document.getElementById('room');
-const art = document.getElementById('room-art');
+let activeArtwork = null;
+let activePane = null;
+let signedIn = false;
 const dialogue = document.getElementById('room-dialogue');
 const sound = installLaboAudio(document.getElementById('sound-toggle'), [...document.querySelectorAll('.room-hotspot')]);
 const sceneInfo = {
@@ -55,7 +57,13 @@ function translate(){
   document.documentElement.lang=language;
   byId('room-language').value=language;
   const hero=byId('room-heading');
-  hero.textContent=other[language].headline;
+  const headline = other[language].headline;
+  const emphasis = language==='ko' ? '새로운' : language==='ja' ? '新しい' : '';
+  const at = emphasis ? headline.indexOf(emphasis) : -1;
+  if (at > 0) {
+    const em=document.createElement('em'); em.textContent=headline.slice(at);
+    hero.replaceChildren(document.createTextNode(headline.slice(0,at)),document.createElement('br'),em);
+  } else { hero.textContent=headline; }
   document.querySelector('.lab-intro>p:last-child').textContent=other[language].intro;
   byId('lab-instruction').querySelector('p').textContent=other[language].instruction;
   byId('dialogue-go').textContent=other[language].go;
@@ -67,6 +75,7 @@ function translate(){
   for(const nav of document.querySelectorAll('.lab-nav a')){
     nav.textContent=nav.dataset[language==='ko'?'kr':language==='ja'?'ja':'en'];
   }
+  byId('lab-account').textContent=signedIn ? (language==='ko'?'내 계정':language==='ja'?'マイページ':language==='vi'?'Tài khoản':language==='zh-CN'?'我的账户':'My account') : other[language].login;
   if(currentScene) fill(currentScene);
   try{localStorage.setItem('dohyun-language',language);}catch{}
 }
@@ -83,12 +92,17 @@ function openScene(key,button){
   if(!sceneInfo[key]||stage.classList.contains('is-zooming')||stage.classList.contains('is-dialogue'))return;
   sound.click();lastFocus=button;currentScene=key;
   const bounds=button.getBoundingClientRect();
-  const rect=stage.getBoundingClientRect();
-  art.style.transformOrigin=((bounds.left+bounds.width/2-rect.left)/rect.width*100)+'% '+((bounds.top+bounds.height/2-rect.top)/rect.height*100)+'%';
+  activePane=button.closest('.scene-pane');
+  activeArtwork=activePane?.querySelector('.scene-image');
+  if (!activePane || !activeArtwork) return;
+  const rect=activePane.getBoundingClientRect();
+  activeArtwork.style.transformOrigin=((bounds.left+bounds.width/2-rect.left)/rect.width*100)+'% '+((bounds.top+bounds.height/2-rect.top)/rect.height*100)+'%';
+  activePane.classList.add('is-zooming');
   stage.classList.add('is-zooming');
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   sceneTimer=window.setTimeout(()=>{
     fill(key);
+    activePane?.classList.remove('is-zooming');
     stage.classList.remove('is-zooming');
     stage.classList.add('is-dialogue');
     dialogue.hidden=false;
@@ -102,7 +116,9 @@ function closeScene(){
   dialogue.hidden=true;
   dialogue.setAttribute('aria-hidden','true');
   currentScene=null;
-  art.style.transformOrigin='';
+  activePane?.classList.remove('is-zooming');
+  if (activeArtwork) activeArtwork.style.transformOrigin='';
+  activePane=null; activeArtwork=null;
   lastFocus?.focus();
 }
 document.querySelectorAll('.room-hotspot').forEach(b=>b.addEventListener('click',()=>openScene(b.dataset.room,b)));
@@ -124,8 +140,9 @@ import('./cloud-api.js').then(async ({supabase})=>{
   if(!supabase)return;
   const {data,error}=await supabase.auth.getUser();
   if(!error&&data?.user){
+    signedIn=true;
     const a=byId('lab-account');
-    a.textContent=language==='en'?'My Account':'내 계정';
     a.href='mypage.html';
+    translate();
   }
 }).catch(()=>{});
