@@ -1,0 +1,29 @@
+<!doctype html><html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="conect labo 브랜드 실험실. 나라와 사람, 문제를 조합해 브랜드의 가능성을 탐색합니다.">
+<title>브랜드 실험실 | conect labo</title><link rel="icon" href="images/brand-favicon-32.png">
+<link rel="stylesheet" href="css/labo-theme.css"><script type="module" src="js/conect-page.js"></script>
+<script type="module" src="js/conect-brand.js"></script>
+</head><body class="labo-page">
+<header class="labo-sub-header"><a class="labo-mark" href="index.html">conect labo<small>연결의 실험실</small></a>
+<nav aria-label="주 메뉴"><a href="index.html">연구실</a><a href="curator.html">큐레이터 추천</a><a href="gallery.html">공개 갤러리</a><a href="about.html">기획자 이야기</a><a href="login.html?next=admin.html">작업실</a></nav></header>
+<main class="labo-content"><section class="labo-hero">
+<p class="eyebrow">BRAND LAB · INTERACTIVE EXPERIMENT</p><h1>브랜드 실험실</h1>
+<p>서로 다른 사람과 문화를 연결해 새로운 기획의 출발점을 만들어 보세요. 아래 실험은 아이디어를 탐색하기 위한 예시이며 시장 검증 결과가 아닙니다.</p></section>
+<div class="experiment-layout">
+<section class="labo-panel"><h2>01. 실험 재료</h2><p>고객, 시장, 해결하고 싶은 문제를 선택합니다.</p>
+<form id="brand-form">
+<label for="b-market">시장</label><select id="b-market"><option value="ko">한국</option><option value="ja">일본</option><option value="vi">베트남</option></select>
+<label for="b-audience">대상 고객</label><select id="b-audience"><option value="young">20~30대 직장인</option><option value="student">대학생</option><option value="traveler">여행자</option><option value="family">가족</option></select>
+<label for="b-issue">풀고 싶은 문제</label><select id="b-issue"><option value="time">바쁜 일상 속 시간 부족</option><option value="culture">서로 다른 문화의 거리감</option><option value="routine">지속하기 어려운 좋은 습관</option><option value="discovery">취향에 맞는 선택의 어려움</option></select>
+<label for="b-tone">브랜드의 분위기</label><select id="b-tone"><option value="warm">따뜻한 · 친근한</option><option value="refined">절제된 · 고급스러운</option><option value="play">즐거운 · 장난스러운</option></select>
+<button type="submit" class="labo-primary">실험 시작하기 <span aria-hidden="true">✦</span></button>
+</form></section>
+<section class="labo-panel result-panel" aria-live="polite"><h2>02. 관찰 기록</h2><div id="experiment-empty"><p>재료를 선택한 뒤 실험을 시작해 주세요.</p><div class="orbit" aria-hidden="true">✦</div></div>
+<div id="experiment-result" hidden><p class="eyebrow">HYPOTHESIS / 001</p><h3 id="result-name"></h3>
+<dl><dt>기획 가설</dt><dd id="result-hypothesis"></dd><dt>경험 설계</dt><dd id="result-execution"></dd><dt>검증 방법</dt><dd id="result-test"></dd></dl>
+<p class="labo-note">이 결과는 선택 항목을 조합한 아이디어 스케치입니다. 실제 시장 조사와 사용자 인터뷰가 필요합니다.</p>
+<button type="button" class="labo-secondary" id="result-copy">기획 초안 복사</button>
+<a class="labo-primary inline" href="planner.html">기획서 도구로 더 발전시키기 ↗</a></div></section>
+</div><div class="labo-bottom"><a href="index.html">← 연구실로 돌아가기</a><a href="curator.html">기획 사례 먼저 보기 ↗</a></div></main>
+</body></html>
